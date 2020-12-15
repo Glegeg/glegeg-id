@@ -1,7 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+$MAIN-BG: #f5eae6;
+$TEXT-HEADING: #6c553d;
+$TEXT-BLACK: #292929;
+$TEXT-DEFOCUS: #646464;
+
 /* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -15,16 +22,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 } */
+
 .App {
   max-width: 450px;
   margin: auto;
   min-height: 100vh;
   overflow: hidden;
-  background-color: #f5eae6;
+  background-color: $MAIN-BG;
   font-family: "Poppins", sans-serif;
 }
 
 .item-img {
-  background-color: #f5eae6;
+  background-color: $MAIN-BG;
 }
-/*# sourceMappingURL=index.css.map */
