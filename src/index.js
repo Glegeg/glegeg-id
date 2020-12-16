@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import firebase from "firebase";
 import { FirestoreProvider } from "@react-firebase/firestore";
-import config from "../firebase";
+import config from "./firebase";
 
 import "./index.css";
 import App from "./App";

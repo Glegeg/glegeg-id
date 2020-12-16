@@ -8,6 +8,8 @@ $MAIN-BG: #f5eae6;
 $TEXT-HEADING: #6c553d;
 $TEXT-BLACK: #292929;
 $TEXT-DEFOCUS: #646464;
+$HIGHLIGHT-BG: #df5c52;
+$HISTORY-BTN: #e3d7d2;
 
 /* body {
   margin: 0;
@@ -32,6 +34,40 @@ code {
   font-family: "Poppins", sans-serif;
 }
 
+.text-heading {
+  color: $TEXT-HEADING;
+}
+
+.text-black {
+  color: $TEXT-BLACK;
+}
+
+.text-defocus {
+  color: $TEXT-DEFOCUS;
+}
+
 .item-img {
   background-color: $MAIN-BG;
+}
+
+.home-highlight {
+  background-color: $HIGHLIGHT-BG;
+  background-image: url("./assets/highlight-bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  .highlight-img {
+    img {
+      transform: rotate(-18deg);
+    }
+  }
+}
+
+.total-cta {
+  background-color: $HIGHLIGHT-BG;
+}
+
+.history-btn {
+  background-color: $HISTORY-BTN;
 }

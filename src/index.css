@@ -24,7 +24,40 @@ code {
   font-family: "Poppins", sans-serif;
 }
 
+.text-heading {
+  color: #6c553d;
+}
+
+.text-black {
+  color: #292929;
+}
+
+.text-defocus {
+  color: #646464;
+}
+
 .item-img {
   background-color: #f5eae6;
+}
+
+.home-highlight {
+  background-color: #df5c52;
+  background-image: url("./assets/highlight-bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.home-highlight .highlight-img img {
+  -webkit-transform: rotate(-18deg);
+          transform: rotate(-18deg);
+}
+
+.total-cta {
+  background-color: #df5c52;
+}
+
+.history-btn {
+  background-color: #e3d7d2;
 }
 /*# sourceMappingURL=index.css.map */
