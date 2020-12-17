@@ -1,0 +1,32 @@
+<svg width="339" height="196" viewBox="0 0 339 196" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="330" height="196">
+<path d="M0 0H330V196H0V0Z" fill="#DF5C52"/>
+</mask>
+<g mask="url(#mask0)">
+<circle cx="25" cy="125" r="2" fill="#EC695F"/>
+<circle cx="32" cy="125" r="2" fill="#EC695F"/>
+<circle cx="39" cy="125" r="2" fill="#EC695F"/>
+<circle cx="46" cy="125" r="2" fill="#EC695F"/>
+<circle cx="25" cy="132" r="2" fill="#EC695F"/>
+<circle cx="32" cy="132" r="2" fill="#EC695F"/>
+<circle cx="39" cy="132" r="2" fill="#EC695F"/>
+<circle cx="46" cy="132" r="2" fill="#EC695F"/>
+<circle cx="25" cy="139" r="2" fill="#EC695F"/>
+<circle cx="32" cy="139" r="2" fill="#EC695F"/>
+<circle cx="39" cy="139" r="2" fill="#EC695F"/>
+<circle cx="46" cy="139" r="2" fill="#EC695F"/>
+<circle cx="170" cy="47" r="2" fill="#CA554D"/>
+<circle cx="177" cy="47" r="2" fill="#CA554D"/>
+<circle cx="184" cy="47" r="2" fill="#CA554D"/>
+<circle cx="191" cy="47" r="2" fill="#CA554D"/>
+<circle cx="170" cy="54" r="2" fill="#CA554D"/>
+<circle cx="177" cy="54" r="2" fill="#CA554D"/>
+<circle cx="184" cy="54" r="2" fill="#CA554D"/>
+<circle cx="191" cy="54" r="2" fill="#CA554D"/>
+<circle cx="170" cy="61" r="2" fill="#CA554D"/>
+<circle cx="177" cy="61" r="2" fill="#CA554D"/>
+<circle cx="184" cy="61" r="2" fill="#CA554D"/>
+<circle cx="191" cy="61" r="2" fill="#CA554D"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M256.962 12.2368C272.884 16.1116 280.085 33.758 291.082 45.8889C299.403 55.0679 306.181 64.3949 313.382 74.4733C324.612 90.1884 345.457 102.034 344.992 121.333C344.524 140.804 327.077 155.993 311.15 167.239C295.365 178.384 276.116 186.105 256.962 183.488C238.869 181.017 226.146 165.971 212.573 153.774C200.51 142.935 187.42 132.367 182.786 116.838C178.212 101.514 183.37 85.7008 187.659 70.2942C192.155 54.1435 195.294 36.4828 208.156 25.7079C221.41 14.6041 240.152 8.14588 256.962 12.2368Z" fill="#F06E64"/>
+</g>
+</svg>
