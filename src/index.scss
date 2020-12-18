@@ -10,6 +10,7 @@ $TEXT-BLACK: #292929;
 $TEXT-DEFOCUS: #646464;
 $HIGHLIGHT-BG: #df5c52;
 $HISTORY-BTN: #e3d7d2;
+$CHECKBOX-OUTLINE: #bca69e;
 
 /* body {
   margin: 0;
@@ -70,4 +71,8 @@ code {
 
 .history-btn {
   background-color: $HISTORY-BTN;
+}
+
+#save {
+  border: 1px solid $CHECKBOX-OUTLINE;
 }

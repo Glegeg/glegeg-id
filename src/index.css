@@ -60,4 +60,8 @@ code {
 .history-btn {
   background-color: #e3d7d2;
 }
+
+#save {
+  border: 1px solid #bca69e;
+}
 /*# sourceMappingURL=index.css.map */
