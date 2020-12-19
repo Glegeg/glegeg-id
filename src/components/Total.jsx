@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 function Total(props) {
   return (
@@ -9,9 +10,12 @@ function Total(props) {
         <h4 className="font-bold">Rp 30.000</h4>
       </div>
 
-      <div className="total-cta w-1/2 rounded-xl flex items-center justify-center">
-        <p className="font-semibold text-white">Pesan</p>
-      </div>
+      {/* {props.mode == "cart" ? } */}
+      <Link to="/order" className="total-cta w-1/2 rounded-xl ">
+        <div className="h-full flex items-center justify-center">
+          <p className="font-semibold text-white">Pesan</p>
+        </div>
+      </Link>
     </div>
   );
 }
