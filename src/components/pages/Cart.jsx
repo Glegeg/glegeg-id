@@ -8,7 +8,7 @@ import { ReactComponent as History } from "../../assets/history.svg";
 function Cart(props) {
   useEffect(() => {
     props.setNav(true);
-  }, []);
+  }, [props]);
 
   return (
     <div className="p-6">

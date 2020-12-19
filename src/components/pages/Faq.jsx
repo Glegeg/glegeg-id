@@ -8,7 +8,7 @@ import AccordionTitle from "../AccordionTitle";
 function Faq(props) {
   useEffect(() => {
     props.setNav(true);
-  }, []);
+  }, [props]);
 
   return (
     <div className="p-6">
@@ -21,7 +21,7 @@ function Faq(props) {
       </div>
 
       <Collapsible
-        trigger={<AccordionTitle title="Gimana cara order gleGek?" />}
+        trigger={<AccordionTitle title="Gimana cara order gleGlek?" />}
         triggerStyle={{ cursor: "pointer" }}
         transitionTime={200}
         easing="ease-in-out"
@@ -34,7 +34,7 @@ function Faq(props) {
       </Collapsible>
 
       <Collapsible
-        trigger={<AccordionTitle title="Gimana cara order gleGek?" />}
+        trigger={<AccordionTitle title="Gimana cara penyajian gleGlek?" />}
         triggerStyle={{ cursor: "pointer" }}
         transitionTime={200}
         easing="ease-in-out"

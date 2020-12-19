@@ -7,7 +7,7 @@ import ProductCheckout from "../ProductCheckout";
 function Product(props) {
   useEffect(() => {
     props.setNav(false);
-  }, []);
+  }, [props]);
 
   return (
     <div>
