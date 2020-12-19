@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+$BODY-BG: #c9b6af;
+$MAIN-BG: #f5eae6;
+$TEXT-HEADING: #6c553d;
+$TEXT-BLACK: #292929;
+$TEXT-DEFOCUS: #646464;
+$HIGHLIGHT-BG: #df5c52;
+$HISTORY-BTN: #e3d7d2;
+$CHECKBOX-OUTLINE: #bca69e;
+
+/* body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+} */
+
+body {
+  background-color: $BODY-BG;
+}
+
+.App {
+  max-width: 450px;
+  margin: auto;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: $MAIN-BG;
+  font-family: "Poppins", sans-serif;
+}
+
+.text-heading {
+  color: $TEXT-HEADING;
+}
+
+.text-black {
+  color: $TEXT-BLACK;
+}
+
+.text-defocus {
+  color: $TEXT-DEFOCUS;
+}
+
+.item-img {
+  background-color: $MAIN-BG;
+}
+
+.png-shadow {
+  filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.24));
+}
+
+.home-highlight {
+  background-color: $HIGHLIGHT-BG;
+  background-image: url("./assets/highlight-bg.svg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  .highlight-img {
+    img {
+      transform: rotate(-18deg);
+    }
+  }
+}
+
+.total-cta {
+  background-color: $HIGHLIGHT-BG;
+}
+
+.history-btn {
+  background-color: $HISTORY-BTN;
+}
+
+#save {
+  border: 1px solid $CHECKBOX-OUTLINE;
+}
+
+.nav-btn {
+  @apply w-7 h-7;
+}
+
+nav {
+  max-width: 400px;
+  margin: auto;
+}
+
+.show-nav {
+  bottom: 1rem;
+  transition: bottom 200ms ease-in-out;
+}
+
+.hide-nav {
+  bottom: -4rem;
+  transition: bottom 200ms ease-in-out;
+}
+
+.product-bg {
+  background-color: $HIGHLIGHT-BG;
+  background-image: url("./assets/1-red-velvet-bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  img {
+    transform: rotate(-18deg);
+  }
+}
+
+.info-container {
+  background-color: #edd8d0;
+  background-image: url("./assets/info-bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.checkout-container {
+  max-width: 400px;
+  margin: auto;
+
+  .checkout-btn {
+    background-color: $HIGHLIGHT-BG;
+  }
+}
+
+.is-open {
+  svg {
+    transform: rotate(180deg);
+    transition: all 200ms ease-in-out;
+  }
+}
+
+.is-closed {
+  svg {
+    transform: rotate(0deg);
+    transition: all 200ms ease-in-out;
+  }
+}

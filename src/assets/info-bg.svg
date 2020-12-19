@@ -1,0 +1,20 @@
+<svg width="223" height="74" viewBox="0 0 223 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="223" height="74">
+<rect width="223" height="74" rx="9" fill="#EDD8D0"/>
+</mask>
+<g mask="url(#mask0)">
+<circle cx="63" cy="53" r="2" fill="#DBC1B7"/>
+<circle cx="70" cy="53" r="2" fill="#DBC1B7"/>
+<circle cx="77" cy="53" r="2" fill="#DBC1B7"/>
+<circle cx="84" cy="53" r="2" fill="#DBC1B7"/>
+<circle cx="63" cy="60" r="2" fill="#DBC1B7"/>
+<circle cx="70" cy="60" r="2" fill="#DBC1B7"/>
+<circle cx="77" cy="60" r="2" fill="#DBC1B7"/>
+<circle cx="84" cy="60" r="2" fill="#DBC1B7"/>
+<circle cx="63" cy="67" r="2" fill="#DBC1B7"/>
+<circle cx="70" cy="67" r="2" fill="#DBC1B7"/>
+<circle cx="77" cy="67" r="2" fill="#DBC1B7"/>
+<circle cx="84" cy="67" r="2" fill="#DBC1B7"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M156.5 -22C173.163 -21.9219 178.982 -0.762982 189.663 12.0272C200.925 25.5136 222.68 35.5587 218.895 52.717C215.107 69.8909 191.34 70.3149 175.244 77.3988C160.354 83.9517 146.022 97.6784 131.018 91.3915C115.615 84.9376 110.182 66.0473 108.499 49.4316C107.071 35.3393 115.044 23.4708 122.945 11.7144C132.249 -2.13162 139.819 -22.0782 156.5 -22Z" fill="#E1D0C9"/>
+</g>
+</svg>
