@@ -51,10 +51,14 @@ code {
   background-color: $MAIN-BG;
 }
 
+.png-shadow {
+  filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.24));
+}
+
 .home-highlight {
   background-color: $HIGHLIGHT-BG;
   background-image: url("./assets/highlight-bg.svg");
-  background-size: cover;
+  background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
 
@@ -75,4 +79,66 @@ code {
 
 #save {
   border: 1px solid $CHECKBOX-OUTLINE;
+}
+
+.nav-btn {
+  @apply w-7 h-7;
+}
+
+nav {
+  max-width: 400px;
+  margin: auto;
+}
+
+.show-nav {
+  bottom: 1rem;
+  transition: bottom 200ms ease-in-out;
+}
+
+.hide-nav {
+  bottom: -4rem;
+  transition: bottom 200ms ease-in-out;
+}
+
+.product-bg {
+  background-color: $HIGHLIGHT-BG;
+  background-image: url("./assets/1-red-velvet-bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  img {
+    transform: rotate(-18deg);
+  }
+}
+
+.info-container {
+  background-color: #edd8d0;
+  background-image: url("./assets/info-bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.checkout-container {
+  max-width: 400px;
+  margin: auto;
+
+  .checkout-btn {
+    background-color: $HIGHLIGHT-BG;
+  }
+}
+
+.is-open {
+  svg {
+    transform: rotate(180deg);
+    transition: all 200ms ease-in-out;
+  }
+}
+
+.is-closed {
+  svg {
+    transform: rotate(0deg);
+    transition: all 200ms ease-in-out;
+  }
 }

@@ -40,10 +40,15 @@ code {
   background-color: #f5eae6;
 }
 
+.png-shadow {
+  -webkit-filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.24));
+          filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.24));
+}
+
 .home-highlight {
   background-color: #df5c52;
   background-image: url("./assets/highlight-bg.svg");
-  background-size: cover;
+  background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -63,5 +68,70 @@ code {
 
 #save {
   border: 1px solid #bca69e;
+}
+
+.nav-btn {
+  @apply w-7 h-7;
+}
+
+nav {
+  max-width: 400px;
+  margin: auto;
+}
+
+.show-nav {
+  bottom: 1rem;
+  -webkit-transition: bottom 200ms ease-in-out;
+  transition: bottom 200ms ease-in-out;
+}
+
+.hide-nav {
+  bottom: -4rem;
+  -webkit-transition: bottom 200ms ease-in-out;
+  transition: bottom 200ms ease-in-out;
+}
+
+.product-bg {
+  background-color: #df5c52;
+  background-image: url("./assets/1-red-velvet-bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.product-bg img {
+  -webkit-transform: rotate(-18deg);
+          transform: rotate(-18deg);
+}
+
+.info-container {
+  background-color: #edd8d0;
+  background-image: url("./assets/info-bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.checkout-container {
+  max-width: 400px;
+  margin: auto;
+}
+
+.checkout-container .checkout-btn {
+  background-color: #df5c52;
+}
+
+.is-open svg {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+}
+
+.is-closed svg {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
 }
 /*# sourceMappingURL=index.css.map */
