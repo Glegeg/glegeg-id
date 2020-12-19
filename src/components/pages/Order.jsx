@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
 
@@ -10,9 +10,13 @@ import Total from "../Total";
 function Order(props) {
   useEffect(() => {
     props.setNav(false);
-  }, []);
+  }, [props]);
 
   let history = useHistory();
+
+  const [form, setForm] = useState({
+    dom: "",
+  });
 
   return (
     <div className="p-6">
@@ -33,7 +37,7 @@ function Order(props) {
       </div>
 
       <form action="">
-        <label htmlFor="name" className="block text-defocus text-sm mt-4 mb-2">
+        <label htmlFor="name" className="block text-black text-sm mt-4 mb-2">
           Nama
         </label>
         <input
@@ -41,7 +45,7 @@ function Order(props) {
           className="block w-full rounded-xl px-3 py-2 shadow-lg focus:ring-2 focus:ring-gray-500"
         />
 
-        <label htmlFor="addr" className="block text-defocus text-sm mt-4 mb-2">
+        <label htmlFor="addr" className="block text-black text-sm mt-4 mb-2">
           Alamat
         </label>
         <textarea
@@ -51,13 +55,45 @@ function Order(props) {
           className="w-full rounded-xl px-3 py-2 shadow-lg"
         ></textarea>
 
-        <label htmlFor="phone" className="block text-defocus text-sm mt-4 mb-2">
+        <label htmlFor="phone" className="block text-black text-sm mt-4 mb-2">
           Nomor Whatsapp
         </label>
         <input
           type="tel"
           className="block w-full rounded-xl px-3 py-2 shadow-lg"
         />
+
+        <label
+          htmlFor="phone"
+          className="block text-black text-sm mt-4 mb-2 mx-auto"
+        >
+          Domisili
+        </label>
+        <div className="flex gap-4">
+          <div
+            className={`flex-1 text-center font-semibold bg-white rounded-xl shadow-lg py-8 px-4 cursor-pointer ${
+              form.dom === 0
+                ? "ring-2 ring-gray-500 text-heading"
+                : "text-gray-400"
+            }`}
+            onClick={() => setForm({ dom: 0 })}
+            style={{ userSelect: "none" }}
+          >
+            Surakarta
+          </div>
+
+          <div
+            className={`flex-1 text-center font-semibold bg-white rounded-xl shadow-lg py-8 px-4 cursor-pointer ${
+              form.dom === 1
+                ? "ring-2 ring-gray-500 text-heading"
+                : "text-gray-400"
+            }`}
+            onClick={() => setForm({ dom: 1 })}
+            style={{ userSelect: "none" }}
+          >
+            Karanganyar
+          </div>
+        </div>
 
         <div className="flex items-center mt-6">
           <input
