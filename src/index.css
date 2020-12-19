@@ -15,6 +15,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 } */
+body {
+  background-color: #c9b6af;
+}
+
 .App {
   max-width: 450px;
   margin: auto;

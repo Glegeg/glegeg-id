@@ -4,6 +4,7 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
+$BODY-BG: #c9b6af;
 $MAIN-BG: #f5eae6;
 $TEXT-HEADING: #6c553d;
 $TEXT-BLACK: #292929;
@@ -25,6 +26,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 } */
+
+body {
+  background-color: $BODY-BG;
+}
 
 .App {
   max-width: 450px;
