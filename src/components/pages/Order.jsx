@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
+import { useHistory } from "react-router-dom";
+
 import { ReactComponent as Back } from "../../assets/back.svg";
 import product from "../../assets/product.png";
 import ItemOrder from "../ItemOrder";
 import Total from "../Total";
 
 function Order(props) {
+  useEffect(() => {
+    props.setNav(false);
+  }, []);
+
+  let history = useHistory();
+
   return (
-    <div>
+    <div className="p-6">
       <div className="page-nav flex items-center">
-        <Back />
+        <Back
+          style={{ fill: "#6C553D", cursor: "pointer" }}
+          onClick={() => history.goBack()}
+        />
         <h3 className="text-heading ml-6 font-bold">Pemesanan</h3>
       </div>
 

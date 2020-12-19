@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ItemReg from "../ItemReg";
 import product from "../../assets/product.png";
 import logo from "../../assets/logo.jpg";
 import HomeHighlight from "../HomeHighlight";
 
-export default function Home() {
+export default function Home(props) {
+  useEffect(() => {
+    props.setNav(true);
+  }, []);
+
   return (
-    <div>
+    <div className="p-6">
       <img src={logo} alt="" className="w-24 text-center block m-auto" />
       <h4 className="font-bold mt-4 text-lg text-heading">Pagi kak!</h4>
       <p className="text-defocus">Mari dibeli gleGeg nya 😁</p>

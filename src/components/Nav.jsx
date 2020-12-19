@@ -14,7 +14,7 @@ function Nav(props) {
   return (
     <nav
       className={`px-3 py-4 bg-white rounded-xl shadow-lg flex items-center justify-around fixed bottom-4 left-6 right-6 ${
-        window.location.pathname == "/" || "/cart" || "/faq" ? "true" : "false"
+        props.toggle ? "show-nav" : "hide-nav"
       }`}
     >
       <NavLink

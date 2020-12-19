@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import Collapsible from "react-collapsible";
 
@@ -6,8 +6,12 @@ import AccordionContent from "../AccordionContent";
 import AccordionTitle from "../AccordionTitle";
 
 function Faq(props) {
+  useEffect(() => {
+    props.setNav(true);
+  }, []);
+
   return (
-    <div>
+    <div className="p-6">
       <div className="page-title mt-4 mb-8">
         <h2 className="text-heading font-bold text-2xl">
           Frequently Asked
