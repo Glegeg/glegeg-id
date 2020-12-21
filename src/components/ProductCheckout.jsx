@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { ReactComponent as CartAdd } from "../assets/cart-add.svg";
 
 function ProductCheckout(props) {
@@ -20,7 +19,5 @@ function ProductCheckout(props) {
     </div>
   );
 }
-
-ProductCheckout.propTypes = {};
 
 export default ProductCheckout;

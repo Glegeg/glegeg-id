@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import PropTypes from "prop-types";
 import ProductGallery from "../ProductGallery";
 import Info from "../Info";
 import ProductCheckout from "../ProductCheckout";
@@ -28,7 +27,5 @@ function Product(props) {
     </div>
   );
 }
-
-Product.propTypes = {};
 
 export default Product;

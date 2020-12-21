@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 
 function ItemCart(props) {
   const [count, setCount] = useState(1);
@@ -60,7 +59,5 @@ function ItemCart(props) {
     </div>
   );
 }
-
-ItemCart.propTypes = {};
 
 export default ItemCart;

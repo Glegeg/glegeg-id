@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import PropTypes from "prop-types";
 import ItemCart from "../ItemCart";
 import product from "../../assets/product.png";
 import Total from "../Total";
@@ -27,7 +26,5 @@ function Cart(props) {
     </div>
   );
 }
-
-Cart.propTypes = {};
 
 export default Cart;

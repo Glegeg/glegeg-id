@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 function ItemOrder(props) {
   function thousandFormat(x) {
@@ -26,7 +25,5 @@ function ItemOrder(props) {
     </div>
   );
 }
-
-ItemOrder.propTypes = {};
 
 export default ItemOrder;

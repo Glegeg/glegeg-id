@@ -1,6 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { NavLink, useRouteMatch } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+// import { useRouteMatch } from "react-router-dom";
 
 import { ReactComponent as Home } from "../assets/home-solid.svg";
 import { ReactComponent as Cart } from "../assets/shopping-cart-solid.svg";
@@ -49,7 +49,5 @@ function Nav(props) {
     </nav>
   );
 }
-
-Nav.propTypes = {};
 
 export default Nav;

@@ -1,6 +1,5 @@
 import React from "react";
 import product from "../assets/product.png";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 function HomeHighlight(props) {
@@ -23,7 +22,5 @@ function HomeHighlight(props) {
     </Link>
   );
 }
-
-HomeHighlight.propTypes = {};
 
 export default HomeHighlight;

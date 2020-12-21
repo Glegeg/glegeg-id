@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
 
 import { ReactComponent as Back } from "../../assets/back.svg";
@@ -127,7 +126,5 @@ function Order(props) {
     </div>
   );
 }
-
-Order.propTypes = {};
 
 export default Order;

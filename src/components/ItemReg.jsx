@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import product from "../assets/product.png";
 import { Link } from "react-router-dom";
 
 function ItemReg(props) {

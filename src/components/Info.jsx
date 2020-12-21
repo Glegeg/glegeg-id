@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 import { ReactComponent as InfoLogo } from "../assets/info-logo.svg";
 
@@ -14,7 +13,5 @@ function Info(props) {
     </div>
   );
 }
-
-Info.propTypes = {};
 
 export default Info;

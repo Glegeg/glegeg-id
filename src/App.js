@@ -1,19 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, useLocation } from "react-router-dom";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 import Cart from "./components/pages/Cart";
 import Home from "./components/pages/Home";
 import Faq from "./components/pages/Faq";
 import Order from "./components/pages/Order";
 import Nav from "./components/Nav";
 import Product from "./components/pages/Product";
-
-// function usePage() {
-//   let loc = useLocation();
-
-//   useEffect(() => {
-//     console.log(loc.pathname);
-//   }, [loc]);
-// }
 
 function App() {
   const [nav, setNav] = useState(true);
