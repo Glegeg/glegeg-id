@@ -16,6 +16,10 @@ function ItemCart(props) {
     }
   };
 
+  function thousandFormat(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  }
+
   return (
     <div className="w-full flex p-4 pr-6 mb-4 bg-white rounded-xl shadow-xl">
       <div className="h-20 w-20 flex items-center justify-center rounded-xl item-img">
@@ -30,7 +34,9 @@ function ItemCart(props) {
         <h3 className="font-bold text-lg text-black">{props.title}</h3>
 
         <div className="counter-container flex justify-between mt-3">
-          <small className="text-defocus">{props.price}</small>
+          <small className="text-defocus">{`Rp ${thousandFormat(
+            props.price
+          )}`}</small>
 
           <div className="cart-counter flex">
             <div

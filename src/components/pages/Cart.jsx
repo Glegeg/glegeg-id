@@ -20,10 +20,10 @@ function Cart(props) {
         </div>
       </div>
 
-      <ItemCart img={product} title="Original Red Velvet" price={"Rp 15.000"} />
-      <ItemCart img={product} title="Matcha Latte" price={"Rp 18.000"} />
+      <ItemCart img={product} title="Original Red Velvet" price={15000} />
+      <ItemCart img={product} title="Matcha Latte" price={15000} />
 
-      <Total />
+      <Total total={30000} />
     </div>
   );
 }

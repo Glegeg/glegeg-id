@@ -120,10 +120,10 @@ function Order(props) {
         img={product}
         title="Original Red Velvet"
         sum={2}
-        price="Rp 30.000"
+        price={30000}
       />
 
-      <Total />
+      <Total total={30000} />
     </div>
   );
 }

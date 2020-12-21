@@ -4,6 +4,10 @@ import product from "../assets/product.png";
 import { Link } from "react-router-dom";
 
 function ItemReg(props) {
+  function thousandFormat(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  }
+
   return (
     <Link to="/product">
       <div className="w-full flex p-4 mb-4 bg-white rounded-xl shadow-xl">
@@ -17,7 +21,9 @@ function ItemReg(props) {
 
         <div className="item-title text-left ml-4">
           <h3 className="font-bold text-lg text-black">{props.title}</h3>
-          <small className="text-defocus">{props.price}</small>
+          <small className="text-defocus">{`Rp ${thousandFormat(
+            props.price
+          )}`}</small>
         </div>
       </div>
     </Link>

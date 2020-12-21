@@ -3,11 +3,15 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 function Total(props) {
+  function thousandFormat(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  }
+
   return (
     <div className="p-4 mt-16 bg-white rounded-xl shadow-xl flex">
       <div className="total-text w-1/2">
         <small>Total</small>
-        <h4 className="font-bold">Rp 30.000</h4>
+        <h4 className="font-bold">Rp {thousandFormat(props.total)}</h4>
       </div>
 
       {/* {props.mode == "cart" ? } */}
