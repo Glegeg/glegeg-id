@@ -13,7 +13,7 @@ function Nav(props) {
 
   return (
     <nav
-      className={`px-3 py-4 bg-white rounded-xl shadow-lg flex items-center justify-around fixed bottom-4 left-6 right-6 ${
+      className={`px-3 py-4 bg-white rounded-xl shadow-lg flex items-center justify-around fixed bottom-4 left-6 right-6 z-10 ${
         props.toggle ? "show-nav" : "hide-nav"
       }`}
     >
