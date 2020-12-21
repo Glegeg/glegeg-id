@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 function ItemCart(props) {
+  const [count, setCount] = useState(1);
+
+  const addCount = () => {
+    setCount(count + 1);
+  };
+
+  const removeCount = () => {
+    if (count === 1) {
+      console.log("apakah yakin?");
+    } else {
+      setCount(count - 1);
+    }
+  };
+
   return (
     <div className="w-full flex p-4 pr-6 mb-4 bg-white rounded-xl shadow-xl">
       <div className="h-20 w-20 flex items-center justify-center rounded-xl item-img">
@@ -19,11 +33,19 @@ function ItemCart(props) {
           <small className="text-defocus">{props.price}</small>
 
           <div className="cart-counter flex">
-            <div className="rounded-full bg-white h-6 w-6 shadow-lg text-center font-bold">
+            <div
+              className="rounded-full bg-white h-6 w-6 shadow-lg text-center font-bold cursor-pointer"
+              style={{ userSelect: "none" }}
+              onClick={removeCount}
+            >
               -
             </div>
-            <p className="text-sm font-bold mx-4">1</p>
-            <div className="rounded-full bg-white h-6 w-6 shadow-lg text-center font-bold">
+            <p className="text-sm font-bold mx-4">{count}</p>
+            <div
+              className="rounded-full bg-white h-6 w-6 shadow-lg text-center font-bold cursor-pointer"
+              style={{ userSelect: "none" }}
+              onClick={addCount}
+            >
               +
             </div>
           </div>
