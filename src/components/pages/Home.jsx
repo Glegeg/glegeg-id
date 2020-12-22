@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import ItemReg from "../ItemReg";
-import product from "../../assets/product.png";
 import logo from "../../assets/logo.jpg";
 import HomeHighlight from "../HomeHighlight";
+import products from "../../products";
 
 export default function Home(props) {
   useEffect(() => {
@@ -46,8 +46,14 @@ export default function Home(props) {
       <HomeHighlight />
 
       <h3 className="font-bold text-lg mt-8 mb-3 text-heading">Menu</h3>
-      <ItemReg img={product} title="Original Red Velvet" price={15000} />
-      <ItemReg img={product} title="Matcha Latte" price={15000} />
+      {products.map((product) => (
+        <ItemReg
+          img={product.img}
+          title={product.name}
+          price={product.price}
+          path={product.path}
+        />
+      ))}
     </div>
   );
 }

@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 function ItemReg(props) {
@@ -8,7 +7,7 @@ function ItemReg(props) {
   }
 
   return (
-    <Link to="/product">
+    <Link to={props.path}>
       <div className="w-full flex p-4 mb-4 bg-white rounded-xl shadow-xl">
         <div className="h-20 w-20 flex items-center justify-center rounded-xl item-img">
           <img
@@ -28,11 +27,5 @@ function ItemReg(props) {
     </Link>
   );
 }
-
-ItemReg.propTypes = {
-  img: PropTypes.string,
-  title: PropTypes.string,
-  price: PropTypes.string,
-};
 
 export default ItemReg;

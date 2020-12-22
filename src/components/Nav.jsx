@@ -7,7 +7,7 @@ import { ReactComponent as Cart } from "../assets/shopping-cart-solid.svg";
 import { ReactComponent as Info } from "../assets/info-circle-solid.svg";
 
 function Nav(props) {
-  console.log(window.location.pathname);
+  // console.log(window.location.pathname);
   // let match = useRouteMatch("/faq");
   // console.log(match);
 
