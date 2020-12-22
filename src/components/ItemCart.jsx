@@ -1,20 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
 function ItemCart(props) {
-  const [count, setCount] = useState(1);
-
-  const addCount = () => {
-    setCount(count + 1);
-  };
-
-  const removeCount = () => {
-    if (count === 1) {
-      console.log("apakah yakin?");
-    } else {
-      setCount(count - 1);
-    }
-  };
-
   function thousandFormat(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   }
@@ -41,15 +27,15 @@ function ItemCart(props) {
             <div
               className="rounded-full bg-white h-6 w-6 shadow-lg text-center font-bold cursor-pointer"
               style={{ userSelect: "none" }}
-              onClick={removeCount}
+              onClick={() => props.subtractAmount(props.index)}
             >
               -
             </div>
-            <p className="text-sm font-bold mx-4">{count}</p>
+            <p className="text-sm font-bold mx-4">{props.amount}</p>
             <div
               className="rounded-full bg-white h-6 w-6 shadow-lg text-center font-bold cursor-pointer"
               style={{ userSelect: "none" }}
-              onClick={addCount}
+              onClick={() => props.addAmount(props.index)}
             >
               +
             </div>
