@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 // import { useLocation } from "react-router-dom";
+import useLocalStorage from "./useLocalStorage";
+
 import Cart from "./components/pages/Cart";
 import Home from "./components/pages/Home";
 import Faq from "./components/pages/Faq";
@@ -11,18 +13,19 @@ import RedVelvet from "./components/products/RedVelvet";
 import products from "./products";
 
 import { CartProvider } from "./CartContext";
+import MatchaPlain from "./components/products/MatchaPlain";
+import ChocoDelfi from "./components/products/ChocoDelfi";
 
 function App() {
   const [nav, setNav] = useState(true);
-  const [cart, setCart] = useState({
-    items: [
-      {
-        id: "g01",
-        index: 1,
-        amount: 1,
-      },
-    ],
+
+  const [cart, setCart] = useLocalStorage("cart", {
+    items: [],
   });
+
+  // const [cart, setCart] = useState({
+  //   items: [],
+  // });
 
   function addAmount(index) {
     let cartCopy = { ...cart };
@@ -38,9 +41,27 @@ function App() {
       cartCopy.items[index].amount -= 1;
     } else {
       console.log("Apakah yakin");
+      cartCopy.items.splice(index, 1);
     }
 
     setCart(cartCopy);
+  }
+
+  function cartPush(item) {
+    let cartCopy = { ...cart };
+
+    const cartFilter = cartCopy.items.filter(
+      (current) => current.index === item.index
+    );
+
+    if (cartFilter.length >= 1) {
+      console.log("Already exist");
+    } else {
+      cartCopy.items.push(item);
+
+      setCart(cartCopy);
+      console.log(cartCopy.items);
+    }
   }
 
   return (
@@ -75,15 +96,27 @@ function App() {
           </Route>
 
           <Route path="/red-velvet" exact>
-            <RedVelvet setNav={setNav} product={products[0]} />
+            <RedVelvet
+              setNav={setNav}
+              product={products[0]}
+              cartPush={cartPush}
+            />
           </Route>
 
           <Route path="/matcha-plain" exact>
-            <RedVelvet setNav={setNav} product={products[1]} />
+            <MatchaPlain
+              setNav={setNav}
+              product={products[1]}
+              cartPush={cartPush}
+            />
           </Route>
 
           <Route path="/choco-delfi" exact>
-            <RedVelvet setNav={setNav} product={products[2]} />
+            <ChocoDelfi
+              setNav={setNav}
+              product={products[2]}
+              cartPush={cartPush}
+            />
           </Route>
         </div>
       </Router>
