@@ -7,6 +7,7 @@ import Cart from "./components/pages/Cart";
 import Home from "./components/pages/Home";
 import Faq from "./components/pages/Faq";
 import Order from "./components/pages/Order";
+import History from "./components/pages/History";
 import Nav from "./components/Nav";
 import Product from "./components/pages/Product";
 import RedVelvet from "./components/products/RedVelvet";
@@ -88,11 +89,15 @@ function App() {
           </div>
 
           <Route path="/order" exact>
-            <Order setNav={setNav} />
+            <Order setNav={setNav} setCart={setCart} />
           </Route>
 
           <Route path="/product" exact>
             <Product setNav={setNav} />
+          </Route>
+
+          <Route path="/history" exact>
+            <History setNav={setNav} />
           </Route>
 
           <Route path="/red-velvet" exact>
