@@ -11,7 +11,7 @@ export default function Home(props) {
 
   const date = new Date();
   const currentHour = date.getHours();
-  console.log(currentHour);
+  // console.log(currentHour);
 
   function outputHour(hour) {
     switch (hour) {
@@ -45,15 +45,18 @@ export default function Home(props) {
 
       <HomeHighlight />
 
-      <h3 className="font-bold text-lg mt-8 mb-3 text-heading">Menu</h3>
-      {products.map((product) => (
-        <ItemReg
-          img={product.img}
-          title={product.name}
-          price={product.price}
-          path={product.path}
-        />
-      ))}
+      <div className="pb-20">
+        <h3 className="font-bold text-lg mt-8 mb-3 text-heading">Menu</h3>
+        {products.map((product, idx) => (
+          <ItemReg
+            key={idx}
+            img={product.img}
+            title={product.name}
+            price={product.price}
+            path={product.path}
+          />
+        ))}
+      </div>
     </div>
   );
 }

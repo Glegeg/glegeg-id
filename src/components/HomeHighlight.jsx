@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function HomeHighlight(props) {
   return (
-    <Link to="/product">
+    <Link to="/red-velvet">
       <div className="home-highlight relative w-full flex px-4 py-6 mt-14 mb-4 text-white rounded-xl shadow-xl">
         <div className="highlight-title w-1/2">
           <h4 className="font-semibold text-sm mb-2">Best Seller</h4>
