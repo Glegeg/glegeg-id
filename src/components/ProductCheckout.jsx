@@ -12,7 +12,10 @@ function ProductCheckout(props) {
         props.price
       )}`}</h4>
 
-      <div className="checkout-btn flex items-center px-4 py-3 rounded-xl shadow-lg">
+      <div
+        className="checkout-btn flex items-center px-4 py-3 rounded-xl shadow-lg cursor-pointer"
+        onClick={props.addToCart}
+      >
         <CartAdd />
         <p className="ml-4 text-white font-semibold text-sm">+ Keranjang</p>
       </div>

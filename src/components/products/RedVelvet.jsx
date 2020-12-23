@@ -3,10 +3,20 @@ import ProductGallery from "../ProductGallery";
 import Info from "../Info";
 import ProductCheckout from "../ProductCheckout";
 
-function RedVelvet({ product, setNav }) {
+function RedVelvet({ product, setNav, cartPush }) {
   useEffect(() => {
     setNav(false);
   }, [setNav]);
+
+  function addToCart() {
+    const item = {
+      id: "g00",
+      index: 0,
+      amount: 1,
+    };
+
+    cartPush(item);
+  }
 
   return (
     <div>
@@ -22,7 +32,7 @@ function RedVelvet({ product, setNav }) {
 
         <Info preorder="15 - 32 Desember 2020" />
 
-        <ProductCheckout price={product.price} />
+        <ProductCheckout price={product.price} addToCart={addToCart} />
       </div>
     </div>
   );

@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
+import ProductGallery from "../ProductGallery";
+import Info from "../Info";
+import ProductCheckout from "../ProductCheckout";
 
-function ChocoDelfi(props) {
+function ChocoDelfi({ product, setNav, cartPush }) {
   useEffect(() => {
     setNav(false);
   }, [setNav]);
+
+  function addToCart() {
+    const item = {
+      id: "g02",
+      index: 2,
+      amount: 1,
+    };
+
+    cartPush(item);
+  }
 
   return (
     <div>
@@ -19,7 +32,7 @@ function ChocoDelfi(props) {
 
         <Info preorder="15 - 32 Desember 2020" />
 
-        <ProductCheckout price={product.price} />
+        <ProductCheckout price={product.price} addToCart={addToCart} />
       </div>
     </div>
   );
