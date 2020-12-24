@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import firebase from "firebase";
-import { FirestoreProvider } from "@react-firebase/firestore";
-import config from "./firebase";
+// import firebase from "firebase";
+// import { FirestoreProvider } from "@react-firebase/firestore";
+// import config from "./firebase";
 
 import "./index.css";
 import App from "./App";
@@ -10,9 +10,9 @@ import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
-    <FirestoreProvider {...config} firebase={firebase}>
-      <App />
-    </FirestoreProvider>
+    {/* <FirestoreProvider {...config} firebase={firebase}> */}
+    <App />
+    {/* </FirestoreProvider> */}
   </React.StrictMode>,
   document.getElementById("root")
 );
