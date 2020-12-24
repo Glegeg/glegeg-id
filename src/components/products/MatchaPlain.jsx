@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { Redirect } from "react-router-dom";
 import ProductGallery from "../ProductGallery";
 import Info from "../Info";
 import ProductCheckout from "../ProductCheckout";
@@ -16,6 +17,13 @@ function MatchaPlain({ product, setNav, cartPush }) {
     };
 
     cartPush(item);
+    setRedirect("/cart");
+  }
+
+  const [redirect, setRedirect] = useState();
+
+  if (redirect) {
+    return <Redirect to={redirect} />;
   }
 
   return (
