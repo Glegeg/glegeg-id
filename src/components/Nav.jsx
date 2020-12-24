@@ -13,7 +13,7 @@ function Nav(props) {
 
   return (
     <nav
-      className={`px-3 py-4 bg-white rounded-xl shadow-lg flex items-center justify-around fixed bottom-4 left-6 right-6 z-10 ${
+      className={`px-3 py-4 bg-white rounded-xl shadow-xl flex items-center justify-around fixed bottom-4 left-6 right-6 z-10 ${
         props.toggle ? "show-nav" : "hide-nav"
       }`}
     >
@@ -23,8 +23,9 @@ function Nav(props) {
         style={{ fill: "#9e9e9e" }}
         activeStyle={{ fill: "#6c553d" }}
         activeClassName="nav-active"
+        className="w-full text-center"
       >
-        <Home className="nav-btn" />
+        <Home className="nav-btn inline" />
       </NavLink>
 
       <NavLink
@@ -33,8 +34,9 @@ function Nav(props) {
         style={{ fill: "#9e9e9e" }}
         activeStyle={{ fill: "#6c553d" }}
         activeClassName="nav-active"
+        className="w-full text-center"
       >
-        <Cart className="nav-btn" />
+        <Cart className="nav-btn inline" />
       </NavLink>
 
       <NavLink
@@ -43,8 +45,9 @@ function Nav(props) {
         style={{ fill: "#9e9e9e" }}
         activeStyle={{ fill: "#6c553d" }}
         activeClassName="nav-active"
+        className="w-full text-center"
       >
-        <Info className="nav-btn" />
+        <Info className="nav-btn inline" />
       </NavLink>
     </nav>
   );

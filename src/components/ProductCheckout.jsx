@@ -14,6 +14,7 @@ function ProductCheckout(props) {
 
       <div
         className="checkout-btn flex items-center px-4 py-3 rounded-xl shadow-lg cursor-pointer"
+        style={{ userSelect: "none" }}
         onClick={props.addToCart}
       >
         <CartAdd />
