@@ -1,21 +1,98 @@
-import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useEffect, useState, useContext } from "react";
+import { useHistory, Link, Redirect } from "react-router-dom";
+import { CartContext } from "../../CartContext";
 
 import { ReactComponent as Back } from "../../assets/back.svg";
-import product from "../../assets/product.png";
+import { ReactComponent as EmptyCart } from "../../assets/cart-empty.svg";
 import ItemOrder from "../ItemOrder";
 import Total from "../Total";
+import products from "../../products";
+import SavedData from "../SavedData";
 
 function Order(props) {
   useEffect(() => {
     props.setNav(false);
+
+    const localData = localStorage.getItem("form");
+    if (localData) {
+      setForm(JSON.parse(localData));
+      setShowForm(false);
+    } else {
+      setShowForm(true);
+    }
   }, [props]);
+
+  const cart = useContext(CartContext);
+
+  let totalPrice = 0;
+
+  cart.items.forEach((item) => {
+    totalPrice += item.amount * products[item.index].price;
+  });
 
   let history = useHistory();
 
   const [form, setForm] = useState({
+    name: "",
+    address: "",
+    whatsapp: "",
     dom: "",
+    saveData: true,
   });
+
+  const [showForm, setShowForm] = useState();
+
+  function onFormChange(item, value) {
+    let formCopy = { ...form };
+    formCopy[item] = value;
+
+    setForm(formCopy);
+  }
+
+  function savePersonalData() {
+    if (form.saveData) {
+      localStorage.setItem("form", JSON.stringify(form));
+    }
+  }
+
+  function saveHistory() {
+    let history = JSON.parse(localStorage.getItem("history"));
+
+    if (history) {
+      history.unshift(cart);
+    } else {
+      history = [cart];
+    }
+
+    console.log(history);
+    localStorage.setItem("history", JSON.stringify(history));
+  }
+
+  function submitHandler() {
+    savePersonalData();
+    saveHistory();
+    props.setCart({ items: [] });
+
+    setRedirect("/history");
+  }
+
+  function deleteData() {
+    localStorage.removeItem("form");
+    setForm({
+      name: "",
+      address: "",
+      whatsapp: "",
+      dom: "",
+      saveData: true,
+    });
+    setShowForm(true);
+  }
+
+  const [redirect, setRedirect] = useState();
+
+  if (redirect) {
+    return <Redirect to={redirect} />;
+  }
 
   return (
     <div className="p-6">
@@ -35,77 +112,96 @@ function Order(props) {
         ></div>
       </div>
 
-      <form action="">
-        <label htmlFor="name" className="block text-black text-sm mt-4 mb-2">
-          Nama
-        </label>
-        <input
-          type="text"
-          className="block w-full rounded-xl px-3 py-2 shadow-lg focus:ring-2 focus:ring-gray-500"
-        />
-
-        <label htmlFor="addr" className="block text-black text-sm mt-4 mb-2">
-          Alamat
-        </label>
-        <textarea
-          name="address"
-          id="addr"
-          rows="3"
-          className="w-full rounded-xl px-3 py-2 shadow-lg"
-        ></textarea>
-
-        <label htmlFor="phone" className="block text-black text-sm mt-4 mb-2">
-          Nomor Whatsapp
-        </label>
-        <input
-          type="tel"
-          className="block w-full rounded-xl px-3 py-2 shadow-lg"
-        />
-
-        <label
-          htmlFor="phone"
-          className="block text-black text-sm mt-4 mb-2 mx-auto"
-        >
-          Domisili
-        </label>
-        <div className="flex gap-4">
-          <div
-            className={`flex-1 text-center font-semibold bg-white rounded-xl shadow-lg py-8 px-4 cursor-pointer ${
-              form.dom === 0
-                ? "ring-2 ring-gray-500 text-heading"
-                : "text-gray-400"
-            }`}
-            onClick={() => setForm({ dom: 0 })}
-            style={{ userSelect: "none" }}
-          >
-            Surakarta
-          </div>
-
-          <div
-            className={`flex-1 text-center font-semibold bg-white rounded-xl shadow-lg py-8 px-4 cursor-pointer ${
-              form.dom === 1
-                ? "ring-2 ring-gray-500 text-heading"
-                : "text-gray-400"
-            }`}
-            onClick={() => setForm({ dom: 1 })}
-            style={{ userSelect: "none" }}
-          >
-            Karanganyar
-          </div>
-        </div>
-
-        <div className="flex items-center mt-6">
-          <input
-            type="checkbox"
-            name="save"
-            id="save"
-            className="w-4 h-4 rounded-xl"
-          />
-          <label htmlFor="save" className="block ml-4">
-            Simpan data diri
+      {showForm ? (
+        <form action="">
+          <label htmlFor="name" className="block text-black text-sm mt-4 mb-2">
+            Nama
           </label>
-        </div>
-      </form>
+          <input
+            value={form.name}
+            onChange={(e) => onFormChange("name", e.target.value)}
+            type="text"
+            className="block w-full rounded-xl px-3 py-2 shadow-lg focus:ring-2 focus:ring-gray-500"
+          />
+
+          <label htmlFor="addr" className="block text-black text-sm mt-4 mb-2">
+            Alamat
+          </label>
+          <textarea
+            value={form.address}
+            onChange={(e) => onFormChange("address", e.target.value)}
+            name="address"
+            id="addr"
+            rows="3"
+            className="w-full rounded-xl px-3 py-2 shadow-lg focus:ring-2 focus:ring-gray-500"
+          ></textarea>
+
+          <label htmlFor="phone" className="block text-black text-sm mt-4 mb-2">
+            Nomor Whatsapp
+          </label>
+          <input
+            value={form.whatsapp}
+            onChange={(e) => onFormChange("whatsapp", e.target.value)}
+            type="tel"
+            className="block w-full rounded-xl px-3 py-2 shadow-lg focus:ring-2 focus:ring-gray-500"
+          />
+
+          <label
+            htmlFor="phone"
+            className="block text-black text-sm mt-4 mb-2 mx-auto"
+          >
+            Domisili
+          </label>
+          <div className="flex gap-4">
+            <div
+              className={`flex-1 text-center font-semibold bg-white rounded-xl shadow-lg py-8 px-4 cursor-pointer ${
+                form.dom === 0
+                  ? "ring-2 ring-gray-500 text-heading"
+                  : "text-gray-400"
+              }`}
+              onClick={() => onFormChange("dom", 0)}
+              style={{ userSelect: "none" }}
+            >
+              Surakarta
+            </div>
+
+            <div
+              className={`flex-1 text-center font-semibold bg-white rounded-xl shadow-lg py-8 px-4 cursor-pointer ${
+                form.dom === 1
+                  ? "ring-2 ring-gray-500 text-heading"
+                  : "text-gray-400"
+              }`}
+              onClick={() => onFormChange("dom", 1)}
+              style={{ userSelect: "none" }}
+            >
+              Karanganyar
+            </div>
+          </div>
+
+          <div className="flex items-center mt-6">
+            <input
+              checked={form.saveData}
+              onChange={(e) => onFormChange("saveData", !form.saveData)}
+              type="checkbox"
+              name="save"
+              id="save"
+              className="w-4 h-4 rounded-xl bg-white"
+            />
+            <label htmlFor="save" className="block ml-4">
+              Simpan data diri
+            </label>
+          </div>
+        </form>
+      ) : (
+        <SavedData
+          name={form.name}
+          whatsapp={form.whatsapp}
+          dom={form.dom}
+          address={form.address}
+          setShowForm={setShowForm}
+          deleteData={deleteData}
+        />
+      )}
 
       <div className="section-divider flex items-center mt-10 mb-6">
         <small className="text-defocus">Pesanan</small>
@@ -115,14 +211,29 @@ function Order(props) {
         ></div>
       </div>
 
-      <ItemOrder
-        img={product}
-        title="Original Red Velvet"
-        sum={2}
-        price={30000}
-      />
+      {cart.items.map((item, idx) => (
+        <ItemOrder
+          key={idx}
+          img={products[item.index].img}
+          title={products[item.index].name}
+          sum={item.amount}
+          price={products[item.index].price}
+        />
+      ))}
 
-      <Total total={30000} />
+      {cart.items.length === 0 ? (
+        <div className="text-center mt-12 pb-16">
+          <EmptyCart className="inline" />
+          <h4 className="mb-4 mt-4 font-semibold text-xl">
+            Keranjang masih kosong!
+          </h4>
+          <Link to="/">
+            <p className="text-defocus underline">Explore gleGleg</p>
+          </Link>
+        </div>
+      ) : (
+        <Total mode="order" total={totalPrice} submitHandler={submitHandler} />
+      )}
     </div>
   );
 }
