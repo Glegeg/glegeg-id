@@ -4,7 +4,9 @@ import { CartContext } from "../../CartContext";
 import ItemCart from "../ItemCart";
 import Total from "../Total";
 import products from "../../products";
+import { ReactComponent as EmptyCart } from "../../assets/cart-empty.svg";
 import { ReactComponent as History } from "../../assets/history.svg";
+import { Link } from "react-router-dom";
 
 function Cart(props) {
   useEffect(() => {
@@ -24,9 +26,11 @@ function Cart(props) {
       <div className="page-title flex justify-between items-center mt-4 mb-8">
         <h2 className="text-heading font-bold text-2xl">Keranjang</h2>
 
-        <div className="history-btn p-2 rounded-lg">
-          <History />
-        </div>
+        <Link to="/history">
+          <div className="history-btn p-2 rounded-lg">
+            <History />
+          </div>
+        </Link>
       </div>
 
       {cart.items.map((item, idx) => (
@@ -42,7 +46,19 @@ function Cart(props) {
         />
       ))}
 
-      <Total total={totalPrice} />
+      {cart.items.length === 0 ? (
+        <div className="text-center mt-16">
+          <EmptyCart className="inline" />
+          <h4 className="mb-4 mt-6 font-semibold text-xl">
+            Keranjang masih kosong!
+          </h4>
+          <Link to="/">
+            <p className="text-defocus underline">Explore gleGleg</p>
+          </Link>
+        </div>
+      ) : (
+        <Total mode="cart" total={totalPrice} />
+      )}
     </div>
   );
 }
