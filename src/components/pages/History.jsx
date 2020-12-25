@@ -15,6 +15,7 @@ function History(props) {
   let history = useHistory();
 
   const purchaseHistory = JSON.parse(localStorage.getItem("history"));
+  console.log(purchaseHistory);
 
   return (
     <div className="p-6 pb-16">
@@ -33,7 +34,7 @@ function History(props) {
             key={`${itemIndex}-hst`}
           >
             <h4 className="font-bold">Pre-order</h4>
-            <small className="text-defocus">22 Desember 2020 • 17:54</small>
+            <small className="text-defocus">{`${historyItem.time.getDate()}22 Desember 2020 • 17:54`}</small>
 
             <hr
               style={{
@@ -60,7 +61,10 @@ function History(props) {
               }}
             />
 
-            <TotalHistory transactionNum="F6BU8E" total={60000} />
+            <TotalHistory
+              transactionNum="F6BU8E"
+              total={purchaseHistory.total}
+            />
           </div>
         ))
       ) : (

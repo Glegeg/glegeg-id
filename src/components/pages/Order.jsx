@@ -58,10 +58,21 @@ function Order(props) {
   function saveHistory() {
     let history = JSON.parse(localStorage.getItem("history"));
 
+    let historySum = 0;
+    cart.items.forEach((historyItem) => {
+      historySum += products[historyItem.index].price;
+    });
+
+    let historyPush = cart;
+    historyPush["time"] = new Date();
+    historyPush["total"] = historySum;
+
+    console.log(historyPush);
+
     if (history) {
-      history.unshift(cart);
+      history.unshift(historyPush);
     } else {
-      history = [cart];
+      history = [historyPush];
     }
 
     console.log(history);
