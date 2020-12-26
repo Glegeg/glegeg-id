@@ -17,6 +17,23 @@ function History(props) {
   const purchaseHistory = JSON.parse(localStorage.getItem("history"));
   console.log(purchaseHistory);
 
+  const historyDate = purchaseHistory.map((date) => new Date(date.time));
+
+  const months = [
+    "Januari",
+    "Februari",
+    "Maret",
+    "April",
+    "Mei",
+    "Juni",
+    "Juli",
+    "Agustus",
+    "September",
+    "Oktober",
+    "November",
+    "Desember",
+  ];
+
   return (
     <div className="p-6 pb-16">
       <div className="page-nav flex items-center">
@@ -34,7 +51,17 @@ function History(props) {
             key={`${itemIndex}-hst`}
           >
             <h4 className="font-bold">Pre-order</h4>
-            <small className="text-defocus">{`${historyItem.time.getDate()}22 Desember 2020 • 17:54`}</small>
+            <small className="text-defocus">{`${historyDate[
+              itemIndex
+            ].getDate()} ${
+              months[historyDate[itemIndex].getMonth()]
+            } ${historyDate[itemIndex].getFullYear()} • ${historyDate[
+              itemIndex
+            ].getHours()}:${
+              historyDate[itemIndex].getMinutes() < 10
+                ? "0" + historyDate[itemIndex].getMinutes()
+                : historyDate[itemIndex].getMinutes()
+            }`}</small>
 
             <hr
               style={{
@@ -48,7 +75,7 @@ function History(props) {
               <ItemHistory
                 img={products[item.index].img}
                 title={products[item.index].name}
-                amount={2}
+                amount={item.amount}
                 key={`${idx}-item`}
               />
             ))}
@@ -62,8 +89,8 @@ function History(props) {
             />
 
             <TotalHistory
-              transactionNum="F6BU8E"
-              total={purchaseHistory.total}
+              transactionNum={historyItem.transactionNum}
+              total={historyItem.total}
             />
           </div>
         ))

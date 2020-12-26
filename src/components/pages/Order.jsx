@@ -9,6 +9,8 @@ import Total from "../Total";
 import products from "../../products";
 import SavedData from "../SavedData";
 
+const randomstring = require("randomstring");
+
 function Order(props) {
   useEffect(() => {
     props.setNav(false);
@@ -60,12 +62,13 @@ function Order(props) {
 
     let historySum = 0;
     cart.items.forEach((historyItem) => {
-      historySum += products[historyItem.index].price;
+      historySum += products[historyItem.index].price * historyItem.amount;
     });
 
     let historyPush = cart;
     historyPush["time"] = new Date();
     historyPush["total"] = historySum;
+    historyPush["transactionNum"] = randomstring.generate(7).toUpperCase();
 
     console.log(historyPush);
 
