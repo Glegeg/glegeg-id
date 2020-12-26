@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 import { ReactComponent as InfoLogo } from "../assets/info-logo.svg";
 
@@ -9,12 +8,10 @@ function Info(props) {
       <InfoLogo />
       <div className="info-inner ml-4">
         <h4 className="text-heading font-bold">Periode Pre-order:</h4>
-        <small>15 - 30 Desember 2020</small>
+        <small>{props.preorder}</small>
       </div>
     </div>
   );
 }
-
-Info.propTypes = {};
 
 export default Info;

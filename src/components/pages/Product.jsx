@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import PropTypes from "prop-types";
 import ProductGallery from "../ProductGallery";
 import Info from "../Info";
 import ProductCheckout from "../ProductCheckout";
@@ -21,14 +20,12 @@ function Product(props) {
         </p>
         <p className="text-gray-600 text-sm mt-4">So? don't miss it!!!</p>
 
-        <Info />
+        <Info preorder="15 - 32 Desember 2020" />
 
-        <ProductCheckout />
+        <ProductCheckout price={15000} />
       </div>
     </div>
   );
 }
-
-Product.propTypes = {};
 
 export default Product;

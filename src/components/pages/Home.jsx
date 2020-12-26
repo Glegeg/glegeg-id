@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import ItemReg from "../ItemReg";
-import product from "../../assets/product.png";
 import logo from "../../assets/logo.jpg";
 import HomeHighlight from "../HomeHighlight";
+import products from "../../products";
 
 export default function Home(props) {
   useEffect(() => {
@@ -11,7 +11,7 @@ export default function Home(props) {
 
   const date = new Date();
   const currentHour = date.getHours();
-  console.log(currentHour);
+  // console.log(currentHour);
 
   function outputHour(hour) {
     switch (hour) {
@@ -45,9 +45,18 @@ export default function Home(props) {
 
       <HomeHighlight />
 
-      <h3 className="font-bold text-lg mt-8 mb-3 text-heading">Menu</h3>
-      <ItemReg img={product} title="Original Red Velvet" price="Rp 15.000" />
-      <ItemReg img={product} title="Matcha Latte" price="Rp 18.000" />
+      <div className="pb-20">
+        <h3 className="font-bold text-lg mt-8 mb-3 text-heading">Menu</h3>
+        {products.map((product, idx) => (
+          <ItemReg
+            key={idx}
+            img={product.img}
+            title={product.name}
+            price={product.price}
+            path={product.path}
+          />
+        ))}
+      </div>
     </div>
   );
 }

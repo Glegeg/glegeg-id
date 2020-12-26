@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import product from "../assets/product.png";
 import { ReactComponent as Back } from "../assets/back.svg";
 import { useHistory } from "react-router-dom";
@@ -23,7 +22,5 @@ function ProductGallery(props) {
     </div>
   );
 }
-
-ProductGallery.propTypes = {};
 
 export default ProductGallery;

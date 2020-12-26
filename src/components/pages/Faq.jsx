@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import PropTypes from "prop-types";
 import Collapsible from "react-collapsible";
 
 import AccordionContent from "../AccordionContent";
@@ -48,7 +47,5 @@ function Faq(props) {
     </div>
   );
 }
-
-Faq.propTypes = {};
 
 export default Faq;
