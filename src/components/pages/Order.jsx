@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { useHistory, Link, Redirect } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { CartContext } from "../../CartContext";
 
 import { ReactComponent as Back } from "../../assets/back.svg";
@@ -17,6 +17,7 @@ function Order(props) {
 
     const localData = localStorage.getItem("form");
     if (localData) {
+      console.log(JSON.parse(localData));
       setForm(JSON.parse(localData));
       setShowForm(false);
     } else {
@@ -57,7 +58,7 @@ function Order(props) {
     }
   }
 
-  function saveHistory() {
+  function saveHistory(transactionNum) {
     let history = JSON.parse(localStorage.getItem("history"));
 
     let historySum = 0;
@@ -68,7 +69,7 @@ function Order(props) {
     let historyPush = cart;
     historyPush["time"] = new Date();
     historyPush["total"] = historySum;
-    historyPush["transactionNum"] = randomstring.generate(7).toUpperCase();
+    historyPush["transactionNum"] = transactionNum;
 
     console.log(historyPush);
 
@@ -83,11 +84,33 @@ function Order(props) {
   }
 
   function submitHandler() {
+    const transactionNum = randomstring.generate(7).toUpperCase();
+
     savePersonalData();
-    saveHistory();
+    saveHistory(transactionNum);
     props.setCart({ items: [] });
 
-    setRedirect("/history");
+    if (
+      form.name === "" ||
+      form.address === "" ||
+      form.whatsapp === "" ||
+      form.dom === ""
+    ) {
+      // TODO: Bikin warning kalo ada yang kosong (toastify?)
+      console.log("Aaaaa");
+      return;
+    }
+
+    const orderMessage = `*Pre-order Glegleg*\nNo. pesanan: ${transactionNum}\n\nPesanan:${cart.items.map(
+      (item) => `\n*- ${products[item.index].name} (${item.amount}x)*`
+    )}\n\n*Nama:* ${form.name}\n*Alamat:* ${form.address}\n*No. Wa:* ${
+      form.whatsapp
+    }\n*Domisili:* ${form.dom === 0 ? "Surakarta" : "Karanganyar"}`;
+    console.log(orderMessage.replace(/ /g, "%20").replace(/\n/g, "%0a"));
+
+    return (window.location = `https://api.whatsapp.com/send?phone=${
+      form.dom === 0 ? "6285869362633" : "6281233637974"
+    }&text=${orderMessage.replace(/ /g, "%20").replace(/\n/g, "%0a")}`);
   }
 
   function deleteData() {
@@ -100,12 +123,6 @@ function Order(props) {
       saveData: true,
     });
     setShowForm(true);
-  }
-
-  const [redirect, setRedirect] = useState();
-
-  if (redirect) {
-    return <Redirect to={redirect} />;
   }
 
   return (
