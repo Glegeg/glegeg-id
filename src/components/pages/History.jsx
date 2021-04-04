@@ -15,9 +15,8 @@ function History(props) {
   let history = useHistory();
 
   const purchaseHistory = JSON.parse(localStorage.getItem("history"));
-  console.log(purchaseHistory);
 
-  const historyDate = purchaseHistory.map((date) => new Date(date.time));
+  const historyDate = purchaseHistory?.map((date) => new Date(date.time));
 
   const months = [
     "Januari",
