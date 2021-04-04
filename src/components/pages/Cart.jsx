@@ -7,6 +7,7 @@ import products from "../../products";
 import { ReactComponent as EmptyCart } from "../../assets/cart-empty.svg";
 import { ReactComponent as History } from "../../assets/history.svg";
 import { Link } from "react-router-dom";
+import CartRemoveConfirm from "../CartRemoveConfirm";
 
 function Cart(props) {
   useEffect(() => {
@@ -22,7 +23,7 @@ function Cart(props) {
   });
 
   return (
-    <div className="p-6">
+    <div className="p-6 relative">
       <div className="page-title flex justify-between items-center mt-4 mb-8">
         <h2 className="text-heading font-bold text-2xl">Keranjang</h2>
 
@@ -59,6 +60,7 @@ function Cart(props) {
       ) : (
         <Total mode="cart" total={totalPrice} />
       )}
+      {/* <CartRemoveConfirm /> */}
     </div>
   );
 }
