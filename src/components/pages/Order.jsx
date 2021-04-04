@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { CartContext } from "../../CartContext";
+import { toast } from "react-toastify";
 
 import { ReactComponent as Back } from "../../assets/back.svg";
 import { ReactComponent as EmptyCart } from "../../assets/cart-empty.svg";
@@ -84,22 +85,21 @@ function Order(props) {
   }
 
   function submitHandler() {
-    const transactionNum = randomstring.generate(7).toUpperCase();
-
-    savePersonalData();
-    saveHistory(transactionNum);
-    props.setCart({ items: [] });
-
     if (
       form.name === "" ||
       form.address === "" ||
       form.whatsapp === "" ||
       form.dom === ""
     ) {
-      // TODO: Bikin warning kalo ada yang kosong (toastify?)
-      console.log("Aaaaa");
+      toast.error("Data diri belum lengkap!", { position: "bottom-center" });
       return;
     }
+
+    const transactionNum = randomstring.generate(7).toUpperCase();
+
+    savePersonalData();
+    saveHistory(transactionNum);
+    props.setCart({ items: [] });
 
     const orderMessage = `*Pre-order Glegleg*\nNo. pesanan: ${transactionNum}\n\nPesanan:${cart.items.map(
       (item) => `\n*- ${products[item.index].name} (${item.amount}x)*`

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 // import { useLocation } from "react-router-dom";
 import useLocalStorage from "./useLocalStorage";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Cart from "./components/pages/Cart";
 import Home from "./components/pages/Home";
@@ -46,6 +48,12 @@ function App() {
     }
 
     setCart(cartCopy);
+  }
+
+  function deleteCartItem(index) {
+    let cartCopy = {...cart}
+
+    cartCopy.items.splice(index, 1);
   }
 
   function cartPush(item) {
@@ -125,6 +133,7 @@ function App() {
           </Route>
         </div>
       </Router>
+      <ToastContainer />
     </CartProvider>
   );
 }
