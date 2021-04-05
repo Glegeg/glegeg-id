@@ -96,8 +96,6 @@ nav {
 }
 
 .product-bg {
-  background-color: #df5c52;
-  background-image: url("./assets/1-red-velvet-bg.svg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -106,6 +104,21 @@ nav {
 .product-bg img {
   -webkit-transform: rotate(-18deg);
           transform: rotate(-18deg);
+}
+
+.product-red-velvet {
+  background-color: #df5c52;
+  background-image: url("./assets/1-red-velvet-bg.svg");
+}
+
+.product-matcha-plain {
+  background-color: #c0be7f;
+  background-image: url("./assets/3-matcha-plain-bg.svg");
+}
+
+.product-choco-delfi {
+  background-color: #893929;
+  background-image: url("./assets/2-choco-delfi.svg");
 }
 
 .info-container {
@@ -137,5 +150,45 @@ nav {
           transform: rotate(0deg);
   -webkit-transition: all 200ms ease-in-out;
   transition: all 200ms ease-in-out;
+}
+
+.page-enter {
+  max-width: 450px;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+  -webkit-transition-delay: 300ms;
+          transition-delay: 300ms;
+}
+
+.page-enter-active {
+  position: absolute;
+  max-width: 450px;
+  width: 100%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  opacity: 1;
+}
+
+.page-exit {
+  max-width: 450px;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
+.page-exit-active {
+  opacity: 0;
+  max-width: 450px;
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 /*# sourceMappingURL=index.css.map */

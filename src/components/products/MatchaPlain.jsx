@@ -4,6 +4,8 @@ import ProductGallery from "../ProductGallery";
 import Info from "../Info";
 import ProductCheckout from "../ProductCheckout";
 
+import productImg from "../../assets/product.png";
+
 function MatchaPlain({ product, setNav, cartPush }) {
   useEffect(() => {
     setNav(false);
@@ -28,7 +30,10 @@ function MatchaPlain({ product, setNav, cartPush }) {
 
   return (
     <div>
-      <ProductGallery />
+      <ProductGallery
+        productImg={productImg}
+        productClassName="product-matcha-plain"
+      />
 
       <div className="p-6">
         <h2 className="text-heading text-2xl font-bold">{product.name}</h2>

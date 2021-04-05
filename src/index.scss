@@ -13,6 +13,10 @@ $HIGHLIGHT-BG: #df5c52;
 $HISTORY-BTN: #e3d7d2;
 $CHECKBOX-OUTLINE: #bca69e;
 
+$RED-VELVET: #df5c52;
+$MATCHA-PLAIN: #c0be7f;
+$CHOCO-DELFI: #893929;
+
 /* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -106,8 +110,6 @@ nav {
 }
 
 .product-bg {
-  background-color: $HIGHLIGHT-BG;
-  background-image: url("./assets/1-red-velvet-bg.svg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -115,6 +117,21 @@ nav {
   img {
     transform: rotate(-18deg);
   }
+}
+
+.product-red-velvet {
+  background-color: $RED-VELVET;
+  background-image: url("./assets/1-red-velvet-bg.svg");
+}
+
+.product-matcha-plain {
+  background-color: $MATCHA-PLAIN;
+  background-image: url("./assets/3-matcha-plain-bg.svg");
+}
+
+.product-choco-delfi {
+  background-color: $CHOCO-DELFI;
+  background-image: url("./assets/2-choco-delfi.svg");
 }
 
 .info-container {
@@ -146,4 +163,38 @@ nav {
     transform: rotate(0deg);
     transition: all 200ms ease-in-out;
   }
+}
+
+// Page transition
+
+.page-enter {
+  max-width: 450px;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+  transition-delay: 300ms;
+}
+.page-enter-active {
+  position: absolute;
+  max-width: 450px;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 1;
+}
+.page-exit {
+  max-width: 450px;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  transition: opacity 200ms ease-in-out;
+}
+.page-exit-active {
+  opacity: 0;
+  max-width: 450px;
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }

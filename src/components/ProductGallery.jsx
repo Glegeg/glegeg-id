@@ -8,13 +8,15 @@ function ProductGallery(props) {
 
   return (
     <div>
-      <div className="product-bg w-full h-56 mb-16 relative p-6">
+      <div
+        className={`product-bg w-full h-56 mb-16 relative p-6 ${props.productClassName}`}
+      >
         <Back
           style={{ fill: "white", cursor: "pointer" }}
           onClick={() => history.goBack()}
         />
         <img
-          src={product}
+          src={props.productImg}
           alt=""
           className="png-shadow absolute h-56 left-16 -bottom-12"
         />
