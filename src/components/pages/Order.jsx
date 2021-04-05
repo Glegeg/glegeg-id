@@ -183,9 +183,9 @@ function Order(props) {
           >
             Domisili
           </label>
-          <div className="flex gap-4">
+          <div className="flex">
             <div
-              className={`flex-1 text-center font-semibold bg-white rounded-xl shadow-lg py-8 px-4 cursor-pointer ${
+              className={`flex-1 mr-2 text-center font-semibold bg-white rounded-xl shadow-lg py-8 px-4 cursor-pointer ${
                 form.dom === 0
                   ? "ring-2 ring-gray-500 text-heading"
                   : "text-gray-400"
@@ -197,7 +197,7 @@ function Order(props) {
             </div>
 
             <div
-              className={`flex-1 text-center font-semibold bg-white rounded-xl shadow-lg py-8 px-4 cursor-pointer ${
+              className={`flex-1 ml-2 text-center font-semibold bg-white rounded-xl shadow-lg py-8 px-4 cursor-pointer ${
                 form.dom === 1
                   ? "ring-2 ring-gray-500 text-heading"
                   : "text-gray-400"
