@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 // import { useLocation } from "react-router-dom";
 import useLocalStorage from "./useLocalStorage";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { CSSTransition } from "react-transition-group";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import Cart from "./components/pages/Cart";
 import Home from "./components/pages/Home";
@@ -51,7 +52,7 @@ function App() {
   }
 
   function deleteCartItem(index) {
-    let cartCopy = {...cart}
+    let cartCopy = { ...cart };
 
     cartCopy.items.splice(index, 1);
   }
@@ -80,56 +81,137 @@ function App() {
           <div className="home">
             <Nav toggle={nav} />
             <Route path="/" exact>
-              <Home setNav={setNav} />
+              {({ match }) => (
+                <CSSTransition
+                  in={match != null}
+                  timeout={500}
+                  unmountOnExit
+                  classNames="page"
+                >
+                  <Home setNav={setNav} />
+                </CSSTransition>
+              )}
             </Route>
 
             <Route path="/cart" exact>
-              <Cart
-                setNav={setNav}
-                addAmount={addAmount}
-                subtractAmount={subtractAmount}
-              />
+              {({ match }) => (
+                <CSSTransition
+                  in={match != null}
+                  timeout={500}
+                  unmountOnExit
+                  classNames="page"
+                >
+                  <Cart
+                    setNav={setNav}
+                    addAmount={addAmount}
+                    subtractAmount={subtractAmount}
+                  />
+                </CSSTransition>
+              )}
             </Route>
 
             <Route path="/faq" exact>
-              <Faq setNav={setNav} />
+              {({ match }) => (
+                <CSSTransition
+                  in={match != null}
+                  timeout={500}
+                  unmountOnExit
+                  classNames="page"
+                >
+                  <Faq setNav={setNav} />
+                </CSSTransition>
+              )}
             </Route>
           </div>
 
           <Route path="/order" exact>
-            <Order setNav={setNav} setCart={setCart} />
+            {({ match }) => (
+              <CSSTransition
+                in={match != null}
+                timeout={500}
+                unmountOnExit
+                classNames="page"
+              >
+                <Order setNav={setNav} setCart={setCart} />
+              </CSSTransition>
+            )}
           </Route>
 
           <Route path="/product" exact>
-            <Product setNav={setNav} />
+            {({ match }) => (
+              <CSSTransition
+                in={match != null}
+                timeout={500}
+                unmountOnExit
+                classNames="page"
+              >
+                <Product setNav={setNav} />
+              </CSSTransition>
+            )}
           </Route>
 
           <Route path="/history" exact>
-            <History setNav={setNav} />
+            {({ match }) => (
+              <CSSTransition
+                in={match != null}
+                timeout={500}
+                unmountOnExit
+                classNames="page"
+              >
+                <History setNav={setNav} />
+              </CSSTransition>
+            )}
           </Route>
 
           <Route path="/red-velvet" exact>
-            <RedVelvet
-              setNav={setNav}
-              product={products[0]}
-              cartPush={cartPush}
-            />
+            {({ match }) => (
+              <CSSTransition
+                in={match != null}
+                timeout={500}
+                unmountOnExit
+                classNames="page"
+              >
+                <RedVelvet
+                  setNav={setNav}
+                  product={products[0]}
+                  cartPush={cartPush}
+                />
+              </CSSTransition>
+            )}
           </Route>
 
           <Route path="/matcha-plain" exact>
-            <MatchaPlain
-              setNav={setNav}
-              product={products[1]}
-              cartPush={cartPush}
-            />
+            {({ match }) => (
+              <CSSTransition
+                in={match != null}
+                timeout={500}
+                unmountOnExit
+                classNames="page"
+              >
+                <MatchaPlain
+                  setNav={setNav}
+                  product={products[1]}
+                  cartPush={cartPush}
+                />
+              </CSSTransition>
+            )}
           </Route>
 
           <Route path="/choco-delfi" exact>
-            <ChocoDelfi
-              setNav={setNav}
-              product={products[2]}
-              cartPush={cartPush}
-            />
+            {({ match }) => (
+              <CSSTransition
+                in={match != null}
+                timeout={500}
+                unmountOnExit
+                classNames="page"
+              >
+                <ChocoDelfi
+                  setNav={setNav}
+                  product={products[2]}
+                  cartPush={cartPush}
+                />
+              </CSSTransition>
+            )}
           </Route>
         </div>
       </Router>
