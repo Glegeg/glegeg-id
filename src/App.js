@@ -19,20 +19,15 @@ import products from "./products";
 import { CartProvider } from "./CartContext";
 import MatchaPlain from "./components/products/MatchaPlain";
 import ChocoDelfi from "./components/products/ChocoDelfi";
-import CartRemoveConfirm from "./components/CartRemoveConfirm";
 
 function App() {
-  const [nav, setNav] = useState(true);
+  const [nav, setNav] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
-  const [deleteIndex, setDeleteIndex] = useState("");
+  const [deleteIndex, setDeleteIndex] = useState(undefined);
 
   const [cart, setCart] = useLocalStorage("cart", {
     items: [],
   });
-
-  // const [cart, setCart] = useState({
-  //   items: [],
-  // });
 
   function addAmount(index) {
     let cartCopy = { ...cart };
@@ -47,7 +42,6 @@ function App() {
     if (cartCopy.items[index].amount > 1) {
       cartCopy.items[index].amount -= 1;
     } else {
-      console.log("aaaaaa");
       setShowDeleteModal(true);
       setDeleteIndex(index);
     }
@@ -86,7 +80,7 @@ function App() {
       <Router>
         <div className="App relative">
           <div className="home">
-            {/* <Nav toggle={nav} /> */}
+            <Nav toggle={nav} />
             <Route path="/" exact>
               {({ match }) => (
                 <CSSTransition
