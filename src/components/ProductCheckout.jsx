@@ -2,7 +2,7 @@ import React from "react";
 import { ReactComponent as CartAdd } from "../assets/cart-add.svg";
 
 function ProductCheckout(props) {
-  const { isDisabled } = props;
+  const { isActive } = props;
 
   function thousandFormat(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -16,13 +16,16 @@ function ProductCheckout(props) {
 
       <div
         className={`${
-          isDisabled === true
+          isActive === false
             ? "checkout-btn-disabled"
             : "checkout-btn cursor-pointer"
         } flex items-center px-4 py-3 rounded-xl shadow-lg`}
         style={{ userSelect: "none" }}
-        // onClick={isDisabled === false && props.addToCart}
-        onClick={props.addToCart}
+        onClick={() => {
+          if (isActive === true) {
+            props.addToCart();
+          }
+        }}
       >
         <CartAdd />
         <p className="ml-4 text-white font-semibold text-sm">+ Keranjang</p>

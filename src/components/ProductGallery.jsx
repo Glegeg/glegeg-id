@@ -1,5 +1,4 @@
 import React from "react";
-import product from "../assets/product.png";
 import { ReactComponent as Back } from "../assets/back.svg";
 import { useHistory } from "react-router-dom";
 

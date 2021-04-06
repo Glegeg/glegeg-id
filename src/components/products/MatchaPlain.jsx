@@ -6,7 +6,7 @@ import ProductCheckout from "../ProductCheckout";
 
 import productImg from "../../assets/matcha-plain.png";
 
-function MatchaPlain({ product, setNav, cartPush }) {
+function MatchaPlain({ product, setNav, cartPush, preOrderStatus }) {
   useEffect(() => {
     setNav(false);
   }, [setNav]);
@@ -43,9 +43,13 @@ function MatchaPlain({ product, setNav, cartPush }) {
           </p>
         ))}
 
-        <Info preorder="15 - 32 Desember 2020" />
+        <Info preorder={preOrderStatus.periodePreOrder} />
 
-        <ProductCheckout price={product.price} addToCart={addToCart} />
+        <ProductCheckout
+          isActive={preOrderStatus.preOrderAktif}
+          price={product.price}
+          addToCart={addToCart}
+        />
       </div>
     </div>
   );

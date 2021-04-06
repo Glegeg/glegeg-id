@@ -6,10 +6,11 @@ import ProductCheckout from "../ProductCheckout";
 
 import productImg from "../../assets/choco-delfi.png";
 
-function ChocoDelfi({ product, setNav, cartPush }) {
+function ChocoDelfi({ product, setNav, cartPush, preOrderStatus }) {
   useEffect(() => {
     setNav(false);
-  }, [setNav]);
+    console.log("wut");
+  }, []);
 
   function addToCart() {
     const item = {
@@ -28,8 +29,6 @@ function ChocoDelfi({ product, setNav, cartPush }) {
     return <Redirect to={redirect} />;
   }
 
-  const isDisabled = true;
-
   return (
     <div>
       <ProductGallery
@@ -45,10 +44,10 @@ function ChocoDelfi({ product, setNav, cartPush }) {
           </p>
         ))}
 
-        <Info preorder="15 - 32 Desember 2020" />
+        <Info preorder={preOrderStatus.periodePreOrder} />
 
         <ProductCheckout
-          isDisabled={isDisabled}
+          isActive={preOrderStatus.preOrderAktif}
           price={product.price}
           addToCart={addToCart}
         />

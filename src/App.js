@@ -20,6 +20,8 @@ import { CartProvider } from "./CartContext";
 import MatchaPlain from "./components/products/MatchaPlain";
 import ChocoDelfi from "./components/products/ChocoDelfi";
 
+import { preOrderStatus } from "./setting";
+
 function App() {
   const [nav, setNav] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -177,6 +179,7 @@ function App() {
                 classNames="page"
               >
                 <RedVelvet
+                  preOrderStatus={preOrderStatus}
                   setNav={setNav}
                   product={products[0]}
                   cartPush={cartPush}
@@ -194,6 +197,7 @@ function App() {
                 classNames="page"
               >
                 <MatchaPlain
+                  preOrderStatus={preOrderStatus}
                   setNav={setNav}
                   product={products[1]}
                   cartPush={cartPush}
@@ -211,6 +215,7 @@ function App() {
                 classNames="page"
               >
                 <ChocoDelfi
+                  preOrderStatus={preOrderStatus}
                   setNav={setNav}
                   product={products[2]}
                   cartPush={cartPush}
