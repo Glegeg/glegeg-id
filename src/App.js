@@ -12,7 +12,6 @@ import Faq from "./components/pages/Faq";
 import Order from "./components/pages/Order";
 import History from "./components/pages/History";
 import Nav from "./components/Nav";
-import Product from "./components/pages/Product";
 import RedVelvet from "./components/products/RedVelvet";
 import products from "./products";
 
@@ -140,19 +139,6 @@ function App() {
                 classNames="page"
               >
                 <Order setNav={setNav} setCart={setCart} />
-              </CSSTransition>
-            )}
-          </Route>
-
-          <Route path="/product" exact>
-            {({ match }) => (
-              <CSSTransition
-                in={match != null}
-                timeout={500}
-                unmountOnExit
-                classNames="page"
-              >
-                <Product setNav={setNav} />
               </CSSTransition>
             )}
           </Route>
