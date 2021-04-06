@@ -138,6 +138,11 @@ nav {
   background-color: #df5c52;
 }
 
+.checkout-container .checkout-btn-disabled {
+  background-color: #df5c52;
+  opacity: 0.5;
+}
+
 .is-open svg {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);

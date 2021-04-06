@@ -2,6 +2,8 @@ import React from "react";
 import { ReactComponent as CartAdd } from "../assets/cart-add.svg";
 
 function ProductCheckout(props) {
+  const { isDisabled } = props;
+
   function thousandFormat(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   }
@@ -13,8 +15,13 @@ function ProductCheckout(props) {
       )}`}</h4>
 
       <div
-        className="checkout-btn flex items-center px-4 py-3 rounded-xl shadow-lg cursor-pointer"
+        className={`${
+          isDisabled === true
+            ? "checkout-btn-disabled"
+            : "checkout-btn cursor-pointer"
+        } flex items-center px-4 py-3 rounded-xl shadow-lg`}
         style={{ userSelect: "none" }}
+        // onClick={isDisabled === false && props.addToCart}
         onClick={props.addToCart}
       >
         <CartAdd />

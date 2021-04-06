@@ -19,9 +19,12 @@ import products from "./products";
 import { CartProvider } from "./CartContext";
 import MatchaPlain from "./components/products/MatchaPlain";
 import ChocoDelfi from "./components/products/ChocoDelfi";
+import CartRemoveConfirm from "./components/CartRemoveConfirm";
 
 function App() {
   const [nav, setNav] = useState(true);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [deleteIndex, setDeleteIndex] = useState("");
 
   const [cart, setCart] = useLocalStorage("cart", {
     items: [],
@@ -44,8 +47,9 @@ function App() {
     if (cartCopy.items[index].amount > 1) {
       cartCopy.items[index].amount -= 1;
     } else {
-      console.log("Apakah yakin");
-      cartCopy.items.splice(index, 1);
+      console.log("aaaaaa");
+      setShowDeleteModal(true);
+      setDeleteIndex(index);
     }
 
     setCart(cartCopy);
@@ -55,6 +59,9 @@ function App() {
     let cartCopy = { ...cart };
 
     cartCopy.items.splice(index, 1);
+    setCart(cartCopy);
+    setShowDeleteModal(false);
+    setDeleteIndex("");
   }
 
   function cartPush(item) {
@@ -79,7 +86,7 @@ function App() {
       <Router>
         <div className="App relative">
           <div className="home">
-            <Nav toggle={nav} />
+            {/* <Nav toggle={nav} /> */}
             <Route path="/" exact>
               {({ match }) => (
                 <CSSTransition
@@ -105,6 +112,10 @@ function App() {
                     setNav={setNav}
                     addAmount={addAmount}
                     subtractAmount={subtractAmount}
+                    deleteCartItem={deleteCartItem}
+                    showDeleteModal={showDeleteModal}
+                    setShowDeleteModal={setShowDeleteModal}
+                    deleteIndex={deleteIndex}
                   />
                 </CSSTransition>
               )}
