@@ -12,9 +12,9 @@ import SavedData from "../SavedData";
 
 const randomstring = require("randomstring");
 
-function Order(props) {
+function Order({ setNav, ...props }) {
   useEffect(() => {
-    props.setNav(false);
+    setNav(false);
 
     const localData = localStorage.getItem("form");
     if (localData) {
@@ -24,7 +24,7 @@ function Order(props) {
     } else {
       setShowForm(true);
     }
-  }, [props]);
+  }, [setNav]);
 
   const cart = useContext(CartContext);
 

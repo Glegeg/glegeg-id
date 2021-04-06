@@ -7,10 +7,10 @@ import ItemHistory from "../ItemHistory";
 import TotalHistory from "../TotalHistory";
 import { ReactComponent as HistoryEmpty } from "../../assets/history-empty.svg";
 
-function History(props) {
+function History({ setNav, ...props }) {
   useEffect(() => {
-    props.setNav(false);
-  }, [props]);
+    setNav(false);
+  }, [setNav]);
 
   let history = useHistory();
 

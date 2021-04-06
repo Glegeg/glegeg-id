@@ -9,10 +9,10 @@ import { ReactComponent as History } from "../../assets/history.svg";
 import { Link } from "react-router-dom";
 import CartRemoveConfirm from "../CartRemoveConfirm";
 
-function Cart(props) {
+function Cart({ setNav, ...props }) {
   useEffect(() => {
-    props.setNav(true);
-  }, [props]);
+    setNav(true);
+  }, [setNav]);
 
   const cart = useContext(CartContext);
 

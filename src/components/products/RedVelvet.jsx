@@ -6,10 +6,10 @@ import ProductCheckout from "../ProductCheckout";
 
 import productImg from "../../assets/red-velvet.png";
 
-function RedVelvet(props) {
+function RedVelvet({ product, setNav, cartPush, preOrderStatus }) {
   useEffect(() => {
-    props.setNav(false);
-  }, [props.setNav]);
+    setNav(false);
+  }, [setNav]);
 
   function addToCart() {
     const item = {
@@ -18,7 +18,7 @@ function RedVelvet(props) {
       amount: 1,
     };
 
-    props.cartPush(item);
+    cartPush(item);
     setRedirect("/cart");
   }
 
@@ -36,20 +36,18 @@ function RedVelvet(props) {
       />
 
       <div className="p-6">
-        <h2 className="text-heading text-2xl font-bold">
-          {props.product.name}
-        </h2>
-        {props.product.desc.map((item, idx) => (
+        <h2 className="text-heading text-2xl font-bold">{product.name}</h2>
+        {product.desc.map((item, idx) => (
           <p key={idx} className="text-gray-600 text-sm mt-4">
             {item}
           </p>
         ))}
 
-        <Info preorder={props.preOrderStatus.periodePreOrder} />
+        <Info preorder={preOrderStatus.periodePreOrder} />
 
         <ProductCheckout
-          isActive={props.preOrderStatus.preOrderAktif}
-          price={props.product.price}
+          isActive={preOrderStatus.preOrderAktif}
+          price={product.price}
           addToCart={addToCart}
         />
       </div>

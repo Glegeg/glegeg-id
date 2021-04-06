@@ -9,8 +9,7 @@ import productImg from "../../assets/choco-delfi.png";
 function ChocoDelfi({ product, setNav, cartPush, preOrderStatus }) {
   useEffect(() => {
     setNav(false);
-    console.log("wut");
-  }, []);
+  }, [setNav]);
 
   function addToCart() {
     const item = {

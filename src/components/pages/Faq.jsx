@@ -4,10 +4,10 @@ import Collapsible from "react-collapsible";
 import AccordionContent from "../AccordionContent";
 import AccordionTitle from "../AccordionTitle";
 
-function Faq(props) {
+function Faq({ setNav, ...props }) {
   useEffect(() => {
-    props.setNav(true);
-  }, [props]);
+    setNav(true);
+  }, [setNav]);
 
   return (
     <div className="p-6">

@@ -4,17 +4,15 @@ import logo from "../../assets/logo.jpg";
 import HomeHighlight from "../HomeHighlight";
 import products from "../../products";
 
-export default function Home(props) {
+export default function Home({ setNav, ...props }) {
   useEffect(() => {
-    props.setNav(true);
-  }, [props]);
+    setNav(true);
+  }, [setNav]);
 
   const date = new Date();
   const currentHour = date.getHours();
-  // console.log(currentHour);
 
   function outputHour(hour) {
-    console.log(hour);
     if (hour >= 0 && hour < 4) {
       return "Pagi kak!";
     }
@@ -30,12 +28,15 @@ export default function Home(props) {
     if (hour >= 18 && hour < 24) {
       return "Malam kak!";
     }
+    return "Halo kak!";
   }
 
   return (
     <div className="p-6">
       <img src={logo} alt="" className="w-24 text-center block m-auto" />
-      <h4 className="font-bold mt-4 text-lg text-heading">{outputHour(10)}</h4>
+      <h4 className="font-bold mt-4 text-lg text-heading">
+        {outputHour(currentHour)}
+      </h4>
       <p className="text-defocus">Mari dibeli gleGeg nya 😁</p>
 
       <HomeHighlight />
