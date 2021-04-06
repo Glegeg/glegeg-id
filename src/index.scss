@@ -10,6 +10,7 @@ $TEXT-HEADING: #6c553d;
 $TEXT-BLACK: #292929;
 $TEXT-DEFOCUS: #646464;
 $HIGHLIGHT-BG: #df5c52;
+$HIGHLIGHT-DISABLED: #ee8780;
 $HISTORY-BTN: #e3d7d2;
 $CHECKBOX-OUTLINE: #bca69e;
 
@@ -148,6 +149,10 @@ nav {
 
   .checkout-btn {
     background-color: $HIGHLIGHT-BG;
+  }
+  .checkout-btn-disabled {
+    background-color: $HIGHLIGHT-BG;
+    opacity: 0.5;
   }
 }
 

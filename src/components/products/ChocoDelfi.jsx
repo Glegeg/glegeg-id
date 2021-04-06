@@ -28,6 +28,8 @@ function ChocoDelfi({ product, setNav, cartPush }) {
     return <Redirect to={redirect} />;
   }
 
+  const isDisabled = true;
+
   return (
     <div>
       <ProductGallery
@@ -45,7 +47,11 @@ function ChocoDelfi({ product, setNav, cartPush }) {
 
         <Info preorder="15 - 32 Desember 2020" />
 
-        <ProductCheckout price={product.price} addToCart={addToCart} />
+        <ProductCheckout
+          isDisabled={isDisabled}
+          price={product.price}
+          addToCart={addToCart}
+        />
       </div>
     </div>
   );

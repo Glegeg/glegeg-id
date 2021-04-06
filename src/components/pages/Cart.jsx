@@ -22,6 +22,9 @@ function Cart(props) {
     totalPrice += item.amount * products[item.index].price;
   });
 
+  console.log(props.showDeleteModal);
+  console.log(props.deleteIndex);
+
   return (
     <div className="p-6 relative">
       <div className="page-title flex justify-between items-center mt-4 mb-8">
@@ -60,7 +63,15 @@ function Cart(props) {
       ) : (
         <Total mode="cart" total={totalPrice} />
       )}
-      {/* <CartRemoveConfirm /> */}
+      {props.showDeleteModal ? (
+        <CartRemoveConfirm
+          deleteCartItem={props.deleteCartItem}
+          setShowDeleteModal={props.setShowDeleteModal}
+          deleteIndex={props.deleteIndex}
+        />
+      ) : (
+        ""
+      )}
     </div>
   );
 }
