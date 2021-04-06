@@ -4,7 +4,7 @@ import ProductGallery from "../ProductGallery";
 import Info from "../Info";
 import ProductCheckout from "../ProductCheckout";
 
-import productImg from "../../assets/product.png";
+import productImg from "../../assets/matcha-plain.png";
 
 function MatchaPlain({ product, setNav, cartPush }) {
   useEffect(() => {

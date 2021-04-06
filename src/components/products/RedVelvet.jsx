@@ -4,7 +4,7 @@ import ProductGallery from "../ProductGallery";
 import Info from "../Info";
 import ProductCheckout from "../ProductCheckout";
 
-import productImg from "../../assets/product.png";
+import productImg from "../../assets/red-velvet.png";
 
 function RedVelvet({ product, setNav, cartPush }) {
   useEffect(() => {

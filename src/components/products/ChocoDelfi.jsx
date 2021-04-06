@@ -4,7 +4,7 @@ import ProductGallery from "../ProductGallery";
 import Info from "../Info";
 import ProductCheckout from "../ProductCheckout";
 
-import productImg from "../../assets/product.png";
+import productImg from "../../assets/choco-delfi.png";
 
 function ChocoDelfi({ product, setNav, cartPush }) {
   useEffect(() => {
