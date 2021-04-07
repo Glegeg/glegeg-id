@@ -4,10 +4,15 @@ import ProductGallery from "../ProductGallery";
 import Info from "../Info";
 import ProductCheckout from "../ProductCheckout";
 
-function MatchaPlain({ product, setNav, cartPush }) {
+import productImg from "../../assets/matcha-plain.png";
+import CartAddNotif from "../CartAddNotif";
+
+function MatchaPlain({ product, setNav, cartPush, preOrderStatus }) {
   useEffect(() => {
     setNav(false);
   }, [setNav]);
+
+  const [showCartPreview, setShowCartPreview] = useState(false);
 
   function addToCart() {
     const item = {
@@ -17,7 +22,10 @@ function MatchaPlain({ product, setNav, cartPush }) {
     };
 
     cartPush(item);
-    setRedirect("/cart");
+    setShowCartPreview(true);
+    setTimeout(() => {
+      setShowCartPreview(false);
+    }, 3000);
   }
 
   const [redirect, setRedirect] = useState();
@@ -27,10 +35,13 @@ function MatchaPlain({ product, setNav, cartPush }) {
   }
 
   return (
-    <div>
-      <ProductGallery />
+    <div className="relative">
+      <ProductGallery
+        productImg={productImg}
+        productClassName="product-matcha-plain"
+      />
 
-      <div className="p-6">
+      <div className="p-6 mb-24">
         <h2 className="text-heading text-2xl font-bold">{product.name}</h2>
         {product.desc.map((item, idx) => (
           <p key={idx} className="text-gray-600 text-sm mt-4">
@@ -38,10 +49,21 @@ function MatchaPlain({ product, setNav, cartPush }) {
           </p>
         ))}
 
-        <Info preorder="15 - 32 Desember 2020" />
+        <Info preorder={preOrderStatus.periodePreOrder} />
 
-        <ProductCheckout price={product.price} addToCart={addToCart} />
+        <ProductCheckout
+          isActive={preOrderStatus.preOrderAktif}
+          price={product.price}
+          addToCart={addToCart}
+        />
       </div>
+
+      <CartAddNotif
+        index={1}
+        showCartPreview={showCartPreview}
+        setShowCartPreview={setShowCartPreview}
+        setRedirect={setRedirect}
+      />
     </div>
   );
 }

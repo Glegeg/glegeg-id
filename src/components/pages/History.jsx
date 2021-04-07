@@ -7,17 +7,16 @@ import ItemHistory from "../ItemHistory";
 import TotalHistory from "../TotalHistory";
 import { ReactComponent as HistoryEmpty } from "../../assets/history-empty.svg";
 
-function History(props) {
+function History({ setNav, ...props }) {
   useEffect(() => {
-    props.setNav(false);
-  }, [props]);
+    setNav(false);
+  }, [setNav]);
 
   let history = useHistory();
 
   const purchaseHistory = JSON.parse(localStorage.getItem("history"));
-  console.log(purchaseHistory);
 
-  const historyDate = purchaseHistory.map((date) => new Date(date.time));
+  const historyDate = purchaseHistory?.map((date) => new Date(date.time));
 
   const months = [
     "Januari",

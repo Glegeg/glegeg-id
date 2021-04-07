@@ -1,16 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-// import { useRouteMatch } from "react-router-dom";
 
 import { ReactComponent as Home } from "../assets/home-solid.svg";
 import { ReactComponent as Cart } from "../assets/shopping-cart-solid.svg";
 import { ReactComponent as Info } from "../assets/info-circle-solid.svg";
 
 function Nav(props) {
-  // console.log(window.location.pathname);
-  // let match = useRouteMatch("/faq");
-  // console.log(match);
-
   return (
     <nav
       className={`px-3 py-4 bg-white rounded-xl shadow-xl flex items-center justify-around fixed bottom-4 left-6 right-6 z-10 ${

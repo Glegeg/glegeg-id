@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 // import { useLocation } from "react-router-dom";
 import useLocalStorage from "./useLocalStorage";
+import { CSSTransition } from "react-transition-group";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import Cart from "./components/pages/Cart";
 import Home from "./components/pages/Home";
@@ -9,7 +12,6 @@ import Faq from "./components/pages/Faq";
 import Order from "./components/pages/Order";
 import History from "./components/pages/History";
 import Nav from "./components/Nav";
-import Product from "./components/pages/Product";
 import RedVelvet from "./components/products/RedVelvet";
 import products from "./products";
 
@@ -17,16 +19,16 @@ import { CartProvider } from "./CartContext";
 import MatchaPlain from "./components/products/MatchaPlain";
 import ChocoDelfi from "./components/products/ChocoDelfi";
 
+import { preOrderStatus } from "./setting";
+
 function App() {
-  const [nav, setNav] = useState(true);
+  const [nav, setNav] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [deleteIndex, setDeleteIndex] = useState(undefined);
 
   const [cart, setCart] = useLocalStorage("cart", {
     items: [],
   });
-
-  // const [cart, setCart] = useState({
-  //   items: [],
-  // });
 
   function addAmount(index) {
     let cartCopy = { ...cart };
@@ -41,11 +43,20 @@ function App() {
     if (cartCopy.items[index].amount > 1) {
       cartCopy.items[index].amount -= 1;
     } else {
-      console.log("Apakah yakin");
-      cartCopy.items.splice(index, 1);
+      setShowDeleteModal(true);
+      setDeleteIndex(index);
     }
 
     setCart(cartCopy);
+  }
+
+  function deleteCartItem(index) {
+    let cartCopy = { ...cart };
+
+    cartCopy.items.splice(index, 1);
+    setCart(cartCopy);
+    setShowDeleteModal(false);
+    setDeleteIndex("");
   }
 
   function cartPush(item) {
@@ -72,59 +83,135 @@ function App() {
           <div className="home">
             <Nav toggle={nav} />
             <Route path="/" exact>
-              <Home setNav={setNav} />
+              {({ match }) => (
+                <CSSTransition
+                  in={match != null}
+                  timeout={500}
+                  unmountOnExit
+                  classNames="page"
+                >
+                  <Home setNav={setNav} />
+                </CSSTransition>
+              )}
             </Route>
 
             <Route path="/cart" exact>
-              <Cart
-                setNav={setNav}
-                addAmount={addAmount}
-                subtractAmount={subtractAmount}
-              />
+              {({ match }) => (
+                <CSSTransition
+                  in={match != null}
+                  timeout={500}
+                  unmountOnExit
+                  classNames="page"
+                >
+                  <Cart
+                    setNav={setNav}
+                    addAmount={addAmount}
+                    subtractAmount={subtractAmount}
+                    deleteCartItem={deleteCartItem}
+                    showDeleteModal={showDeleteModal}
+                    setShowDeleteModal={setShowDeleteModal}
+                    deleteIndex={deleteIndex}
+                  />
+                </CSSTransition>
+              )}
             </Route>
 
             <Route path="/faq" exact>
-              <Faq setNav={setNav} />
+              {({ match }) => (
+                <CSSTransition
+                  in={match != null}
+                  timeout={500}
+                  unmountOnExit
+                  classNames="page"
+                >
+                  <Faq setNav={setNav} />
+                </CSSTransition>
+              )}
             </Route>
           </div>
 
           <Route path="/order" exact>
-            <Order setNav={setNav} setCart={setCart} />
-          </Route>
-
-          <Route path="/product" exact>
-            <Product setNav={setNav} />
+            {({ match }) => (
+              <CSSTransition
+                in={match != null}
+                timeout={500}
+                unmountOnExit
+                classNames="page"
+              >
+                <Order setNav={setNav} setCart={setCart} />
+              </CSSTransition>
+            )}
           </Route>
 
           <Route path="/history" exact>
-            <History setNav={setNav} />
+            {({ match }) => (
+              <CSSTransition
+                in={match != null}
+                timeout={500}
+                unmountOnExit
+                classNames="page"
+              >
+                <History setNav={setNav} />
+              </CSSTransition>
+            )}
           </Route>
 
           <Route path="/red-velvet" exact>
-            <RedVelvet
-              setNav={setNav}
-              product={products[0]}
-              cartPush={cartPush}
-            />
+            {({ match }) => (
+              <CSSTransition
+                in={match != null}
+                timeout={500}
+                unmountOnExit
+                classNames="page"
+              >
+                <RedVelvet
+                  preOrderStatus={preOrderStatus}
+                  setNav={setNav}
+                  product={products[0]}
+                  cartPush={cartPush}
+                />
+              </CSSTransition>
+            )}
           </Route>
 
           <Route path="/matcha-plain" exact>
-            <MatchaPlain
-              setNav={setNav}
-              product={products[1]}
-              cartPush={cartPush}
-            />
+            {({ match }) => (
+              <CSSTransition
+                in={match != null}
+                timeout={500}
+                unmountOnExit
+                classNames="page"
+              >
+                <MatchaPlain
+                  preOrderStatus={preOrderStatus}
+                  setNav={setNav}
+                  product={products[1]}
+                  cartPush={cartPush}
+                />
+              </CSSTransition>
+            )}
           </Route>
 
           <Route path="/choco-delfi" exact>
-            <ChocoDelfi
-              setNav={setNav}
-              product={products[2]}
-              cartPush={cartPush}
-            />
+            {({ match }) => (
+              <CSSTransition
+                in={match != null}
+                timeout={500}
+                unmountOnExit
+                classNames="page"
+              >
+                <ChocoDelfi
+                  preOrderStatus={preOrderStatus}
+                  setNav={setNav}
+                  product={products[2]}
+                  cartPush={cartPush}
+                />
+              </CSSTransition>
+            )}
           </Route>
         </div>
       </Router>
+      <ToastContainer />
     </CartProvider>
   );
 }

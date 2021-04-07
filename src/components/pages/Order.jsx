@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
-import { useHistory, Link, Redirect } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { CartContext } from "../../CartContext";
+import { toast } from "react-toastify";
 
 import { ReactComponent as Back } from "../../assets/back.svg";
 import { ReactComponent as EmptyCart } from "../../assets/cart-empty.svg";
@@ -11,18 +12,19 @@ import SavedData from "../SavedData";
 
 const randomstring = require("randomstring");
 
-function Order(props) {
+function Order({ setNav, ...props }) {
   useEffect(() => {
-    props.setNav(false);
+    setNav(false);
 
     const localData = localStorage.getItem("form");
     if (localData) {
+      console.log(JSON.parse(localData));
       setForm(JSON.parse(localData));
       setShowForm(false);
     } else {
       setShowForm(true);
     }
-  }, [props]);
+  }, [setNav]);
 
   const cart = useContext(CartContext);
 
@@ -57,7 +59,7 @@ function Order(props) {
     }
   }
 
-  function saveHistory() {
+  function saveHistory(transactionNum) {
     let history = JSON.parse(localStorage.getItem("history"));
 
     let historySum = 0;
@@ -68,7 +70,7 @@ function Order(props) {
     let historyPush = cart;
     historyPush["time"] = new Date();
     historyPush["total"] = historySum;
-    historyPush["transactionNum"] = randomstring.generate(7).toUpperCase();
+    historyPush["transactionNum"] = transactionNum;
 
     console.log(historyPush);
 
@@ -83,11 +85,32 @@ function Order(props) {
   }
 
   function submitHandler() {
+    if (
+      form.name === "" ||
+      form.address === "" ||
+      form.whatsapp === "" ||
+      form.dom === ""
+    ) {
+      toast.error("Data diri belum lengkap!", { position: "bottom-center" });
+      return;
+    }
+
+    const transactionNum = randomstring.generate(7).toUpperCase();
+
     savePersonalData();
-    saveHistory();
+    saveHistory(transactionNum);
     props.setCart({ items: [] });
 
-    setRedirect("/history");
+    const orderMessage = `*Pre-order Glegleg*\nNo. pesanan: ${transactionNum}\n\nPesanan:${cart.items.map(
+      (item) => `\n*- ${products[item.index].name} (${item.amount}x)*`
+    )}\n\n*Nama:* ${form.name}\n*Alamat:* ${form.address}\n*No. Wa:* ${
+      form.whatsapp
+    }\n*Domisili:* ${form.dom === 0 ? "Surakarta" : "Karanganyar"}`;
+    console.log(orderMessage.replace(/ /g, "%20").replace(/\n/g, "%0a"));
+
+    return (window.location = `https://api.whatsapp.com/send?phone=${
+      form.dom === 0 ? "6285869362633" : "6281233637974"
+    }&text=${orderMessage.replace(/ /g, "%20").replace(/\n/g, "%0a")}`);
   }
 
   function deleteData() {
@@ -100,12 +123,6 @@ function Order(props) {
       saveData: true,
     });
     setShowForm(true);
-  }
-
-  const [redirect, setRedirect] = useState();
-
-  if (redirect) {
-    return <Redirect to={redirect} />;
   }
 
   return (
@@ -135,7 +152,7 @@ function Order(props) {
             value={form.name}
             onChange={(e) => onFormChange("name", e.target.value)}
             type="text"
-            className="block w-full rounded-xl px-3 py-2 shadow-lg focus:ring-2 focus:ring-gray-500"
+            className="block w-full rounded-xl px-3 py-2 shadow-lg focus:ring-2 focus:ring-gray-500 focus:outline-none transition duration-150 ease-in-out"
           />
 
           <label htmlFor="addr" className="block text-black text-sm mt-4 mb-2">
@@ -147,7 +164,7 @@ function Order(props) {
             name="address"
             id="addr"
             rows="3"
-            className="w-full rounded-xl px-3 py-2 shadow-lg focus:ring-2 focus:ring-gray-500"
+            className="w-full rounded-xl px-3 py-2 shadow-lg focus:ring-2 focus:ring-gray-500 focus:outline-none transition duration-150 ease-in-out"
           ></textarea>
 
           <label htmlFor="phone" className="block text-black text-sm mt-4 mb-2">
@@ -157,7 +174,7 @@ function Order(props) {
             value={form.whatsapp}
             onChange={(e) => onFormChange("whatsapp", e.target.value)}
             type="tel"
-            className="block w-full rounded-xl px-3 py-2 shadow-lg focus:ring-2 focus:ring-gray-500"
+            className="block w-full rounded-xl px-3 py-2 shadow-lg focus:ring-2 focus:ring-gray-500 focus:outline-none transition duration-150 ease-in-out"
           />
 
           <label
@@ -166,11 +183,11 @@ function Order(props) {
           >
             Domisili
           </label>
-          <div className="flex gap-4">
+          <div className="flex">
             <div
-              className={`flex-1 text-center font-semibold bg-white rounded-xl shadow-lg py-8 px-4 cursor-pointer ${
+              className={`flex-1 mr-2 text-center font-semibold bg-white rounded-xl shadow-lg py-8 px-4 cursor-pointer transition duration-150 ease-in-out ${
                 form.dom === 0
-                  ? "ring-2 ring-gray-500 text-heading"
+                  ? "ring-2 ring-gray-500 text-heading bg-pink-50"
                   : "text-gray-400"
               }`}
               onClick={() => onFormChange("dom", 0)}
@@ -180,9 +197,9 @@ function Order(props) {
             </div>
 
             <div
-              className={`flex-1 text-center font-semibold bg-white rounded-xl shadow-lg py-8 px-4 cursor-pointer ${
+              className={`flex-1 ml-2 text-center font-semibold bg-white rounded-xl shadow-lg py-8 px-4 cursor-pointer transition duration-150 ease-in-out ${
                 form.dom === 1
-                  ? "ring-2 ring-gray-500 text-heading"
+                  ? "ring-2 ring-gray-500 text-heading bg-pink-50"
                   : "text-gray-400"
               }`}
               onClick={() => onFormChange("dom", 1)}

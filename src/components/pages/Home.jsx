@@ -4,35 +4,31 @@ import logo from "../../assets/logo.jpg";
 import HomeHighlight from "../HomeHighlight";
 import products from "../../products";
 
-export default function Home(props) {
+export default function Home({ setNav, ...props }) {
   useEffect(() => {
-    props.setNav(true);
-  }, [props]);
+    setNav(true);
+  }, [setNav]);
 
   const date = new Date();
   const currentHour = date.getHours();
-  // console.log(currentHour);
 
   function outputHour(hour) {
-    switch (hour) {
-      case hour >= 0 && hour < 4:
-        return "Pagi kak!";
-
-      case hour >= 4 && hour < 10:
-        return "Pagi kak!";
-
-      case hour >= 10 && hour < 14:
-        return "Siang kak!";
-
-      case hour >= 14 && hour < 18:
-        return "Sore kak!";
-
-      case hour >= 18 && hour < 24:
-        return "Malam kak!";
-
-      default:
-        return "Pagi kak!";
+    if (hour >= 0 && hour < 4) {
+      return "Pagi kak!";
     }
+    if (hour >= 4 && hour < 10) {
+      return "Pagi kak!";
+    }
+    if (hour >= 10 && hour < 14) {
+      return "Siang kak!";
+    }
+    if (hour >= 14 && hour < 18) {
+      return "Sore kak!";
+    }
+    if (hour >= 18 && hour < 24) {
+      return "Malam kak!";
+    }
+    return "Halo kak!";
   }
 
   return (
