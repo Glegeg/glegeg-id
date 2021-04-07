@@ -196,4 +196,107 @@ nav {
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
 }
+
+@-webkit-keyframes delete-modal {
+  from {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes delete-modal {
+  from {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@-webkit-keyframes cart-preview-keyframe {
+  0% {
+    bottom: -100%;
+  }
+  20% {
+    bottom: 0;
+  }
+  80% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -100%;
+  }
+}
+
+@keyframes cart-preview-keyframe {
+  0% {
+    bottom: -100%;
+  }
+  20% {
+    bottom: 0;
+  }
+  80% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -100%;
+  }
+}
+
+@-webkit-keyframes cart-preview-bg-keyframe {
+  0% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  20% {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  80% {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes cart-preview-bg-keyframe {
+  0% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  20% {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  80% {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+.cart-remove-modal {
+  -webkit-animation-name: delete-modal;
+          animation-name: delete-modal;
+  -webkit-animation-duration: 150ms;
+          animation-duration: 150ms;
+}
+
+.cart-preview {
+  -webkit-animation-name: cart-preview-keyframe;
+          animation-name: cart-preview-keyframe;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+}
+
+.cart-preview-bg {
+  -webkit-animation-name: cart-preview-bg-keyframe;
+          animation-name: cart-preview-bg-keyframe;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+}
 /*# sourceMappingURL=index.css.map */

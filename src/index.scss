@@ -204,10 +204,59 @@ nav {
   transform: translateX(-50%);
 }
 
-// .cart-remove-modal {
-//   transform: scale(0.8);
-//   transition: scale 1s ease-in-out;
-// }
+@keyframes delete-modal {
+  from {
+    transform: scale(0.7);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes cart-preview-keyframe {
+  0% {
+    bottom: -100%;
+  }
+  20% {
+    bottom: 0;
+  }
+  80% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -100%;
+  }
+}
+
+@keyframes cart-preview-bg-keyframe {
+  0% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  20% {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  80% {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+.cart-remove-modal {
+  animation-name: delete-modal;
+  animation-duration: 150ms;
+}
+
+.cart-preview {
+  animation-name: cart-preview-keyframe;
+  animation-duration: 3s;
+}
+
+.cart-preview-bg {
+  animation-name: cart-preview-bg-keyframe;
+  animation-duration: 3s;
+}
 
 // .remove-modal-active {
 //   transform: scale(1);
