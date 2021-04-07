@@ -152,7 +152,7 @@ function Order({ setNav, ...props }) {
             value={form.name}
             onChange={(e) => onFormChange("name", e.target.value)}
             type="text"
-            className="block w-full rounded-xl px-3 py-2 shadow-lg focus:ring-2 focus:ring-gray-500"
+            className="block w-full rounded-xl px-3 py-2 shadow-lg focus:ring-2 focus:ring-gray-500 focus:outline-none transition duration-150 ease-in-out"
           />
 
           <label htmlFor="addr" className="block text-black text-sm mt-4 mb-2">
@@ -164,7 +164,7 @@ function Order({ setNav, ...props }) {
             name="address"
             id="addr"
             rows="3"
-            className="w-full rounded-xl px-3 py-2 shadow-lg focus:ring-2 focus:ring-gray-500"
+            className="w-full rounded-xl px-3 py-2 shadow-lg focus:ring-2 focus:ring-gray-500 focus:outline-none transition duration-150 ease-in-out"
           ></textarea>
 
           <label htmlFor="phone" className="block text-black text-sm mt-4 mb-2">
@@ -174,7 +174,7 @@ function Order({ setNav, ...props }) {
             value={form.whatsapp}
             onChange={(e) => onFormChange("whatsapp", e.target.value)}
             type="tel"
-            className="block w-full rounded-xl px-3 py-2 shadow-lg focus:ring-2 focus:ring-gray-500"
+            className="block w-full rounded-xl px-3 py-2 shadow-lg focus:ring-2 focus:ring-gray-500 focus:outline-none transition duration-150 ease-in-out"
           />
 
           <label
@@ -185,9 +185,9 @@ function Order({ setNav, ...props }) {
           </label>
           <div className="flex">
             <div
-              className={`flex-1 mr-2 text-center font-semibold bg-white rounded-xl shadow-lg py-8 px-4 cursor-pointer ${
+              className={`flex-1 mr-2 text-center font-semibold bg-white rounded-xl shadow-lg py-8 px-4 cursor-pointer transition duration-150 ease-in-out ${
                 form.dom === 0
-                  ? "ring-2 ring-gray-500 text-heading"
+                  ? "ring-2 ring-gray-500 text-heading bg-pink-50"
                   : "text-gray-400"
               }`}
               onClick={() => onFormChange("dom", 0)}
@@ -197,9 +197,9 @@ function Order({ setNav, ...props }) {
             </div>
 
             <div
-              className={`flex-1 ml-2 text-center font-semibold bg-white rounded-xl shadow-lg py-8 px-4 cursor-pointer ${
+              className={`flex-1 ml-2 text-center font-semibold bg-white rounded-xl shadow-lg py-8 px-4 cursor-pointer transition duration-150 ease-in-out ${
                 form.dom === 1
-                  ? "ring-2 ring-gray-500 text-heading"
+                  ? "ring-2 ring-gray-500 text-heading bg-pink-50"
                   : "text-gray-400"
               }`}
               onClick={() => onFormChange("dom", 1)}
