@@ -7,6 +7,7 @@ import AccordionTitle from "../AccordionTitle";
 import { ReactComponent as Whatsapp } from "../../assets/whatsapp.svg";
 import { ReactComponent as Instagram } from "../../assets/instagram.svg";
 import kognitif from "../../assets/kognitif.jpg";
+import faq from "../../faq";
 
 function Faq({ setNav, ...props }) {
   useEffect(() => {
@@ -14,7 +15,7 @@ function Faq({ setNav, ...props }) {
   }, [setNav]);
 
   return (
-    <div className="p-6">
+    <div className="p-6 mb-32">
       <div className="page-title mt-4 mb-8">
         <h2 className="text-heading font-bold text-2xl">
           Frequently Asked
@@ -23,31 +24,28 @@ function Faq({ setNav, ...props }) {
         </h2>
       </div>
 
-      <Collapsible
-        trigger={<AccordionTitle title="Gimana cara order gleGlek?" />}
-        triggerStyle={{ cursor: "pointer" }}
-        transitionTime={200}
-        easing="ease-in-out"
-      >
-        <AccordionContent>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in
-          suscipit nisl, nec vulputate velit. Praesent ut libero nec lorem
-          facilisis pellentesque sagittis at risus.{" "}
-        </AccordionContent>
-      </Collapsible>
-
-      <Collapsible
-        trigger={<AccordionTitle title="Gimana cara penyajian gleGlek?" />}
-        triggerStyle={{ cursor: "pointer" }}
-        transitionTime={200}
-        easing="ease-in-out"
-      >
-        <AccordionContent>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in
-          suscipit nisl, nec vulputate velit. Praesent ut libero nec lorem
-          facilisis pellentesque sagittis at risus.{" "}
-        </AccordionContent>
-      </Collapsible>
+      {faq.map((item, index) => {
+        return (
+          <Collapsible
+            trigger={<AccordionTitle title={item.judul} />}
+            triggerStyle={{ cursor: "pointer" }}
+            transitionTime={200}
+            easing="ease-in-out"
+            key={index}
+          >
+            <AccordionContent>
+              {item.isi.map((faqItem, idx) => (
+                <p
+                  className={item.isi.length - 1 === idx ? "" : "mb-4"}
+                  key={idx + 100}
+                >
+                  {faqItem}
+                </p>
+              ))}
+            </AccordionContent>
+          </Collapsible>
+        );
+      })}
 
       <div className="mt-10 text-center">
         <h3 className="text-heading font-bold">Hubungi Kami</h3>
@@ -57,7 +55,7 @@ function Faq({ setNav, ...props }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className="w-10 h-10 mr-2 p-2 bg-white rounded-md shadow-md flex items-center justify-center">
+            <div className="w-10 h-10 mr-2 p-2 bg-white rounded-lg shadow-md flex items-center justify-center">
               <Instagram />
             </div>
           </a>
@@ -66,7 +64,7 @@ function Faq({ setNav, ...props }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className="w-10 h-10 ml-2 p-2 bg-white rounded-md shadow-md flex items-center justify-center">
+            <div className="w-10 h-10 ml-2 p-2 bg-white rounded-lg shadow-md flex items-center justify-center">
               <Whatsapp />
             </div>
           </a>
@@ -76,10 +74,7 @@ function Faq({ setNav, ...props }) {
       <div className="mt-8 text-center">
         <h3 className="text-heading font-bold">Website dibuat oleh</h3>
         <a href="https://kognitif.id" target="_blank" rel="noopener noreferrer">
-          <div
-            className="rounded-md shadow-md px-4 py-2 w-3/5 mx-auto mt-2"
-            style={{ backgroundColor: "#F2F2F2" }}
-          >
+          <div className="bg-white rounded-md shadow-md px-4 py-2 w-3/5 mx-auto mt-2">
             <img src={kognitif} alt="Logo kognitif.id" className="" />
           </div>
         </a>

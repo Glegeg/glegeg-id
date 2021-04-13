@@ -15,13 +15,3 @@ AccordionContent.propTypes = {
 };
 
 export default AccordionContent;
-
-// {
-//   parse(DOMPurify.sanitize(props.children)) || (
-//     <>
-//       <Skeleton width="80%" />
-//       <Skeleton width="90%" />
-//       <Skeleton width="70%" />
-//     </>
-//   );
-// }
