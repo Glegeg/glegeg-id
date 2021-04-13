@@ -13,6 +13,7 @@ function CartAddNotif(props) {
         className={`cart-preview fixed w-full bg-white rounded-tl-xl rounded-tr-xl shadow-xl p-6 transition ${
           props.showCartPreview ? "bottom-0" : "bottom-64"
         }}`}
+        style={{ left: "50%", transform: "translateX(-50%)" }}
       >
         <h2 className="text-heading font-bold text-lg">
           Berhasil ditambahkan!
