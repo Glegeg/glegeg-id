@@ -31,6 +31,7 @@ const products = [
     desc: [
       "Lagi pusing nugas, skripsi, atau nungguin kepastian dari dia? Tenang, cobain nih Matcha Plain yang siap nemenin kamu berpusing pusing ria",
       "So? don't miss it!!!",
+      "Beli sekarang!",
     ],
   },
   {
