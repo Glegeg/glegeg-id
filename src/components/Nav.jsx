@@ -35,7 +35,7 @@ function Nav(props) {
       </NavLink>
 
       <NavLink
-        // exact
+        exact
         to="/faq"
         style={{ fill: "#9e9e9e" }}
         activeStyle={{ fill: "#6c553d" }}

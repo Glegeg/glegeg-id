@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-// import { useLocation } from "react-router-dom";
 import useLocalStorage from "./useLocalStorage";
 import { CSSTransition } from "react-transition-group";
 import { ToastContainer } from "react-toastify";
@@ -72,7 +71,6 @@ function App() {
       cartCopy.items.push(item);
 
       setCart(cartCopy);
-      console.log(cartCopy.items);
     }
   }
 
@@ -215,38 +213,5 @@ function App() {
     </CartProvider>
   );
 }
-
-// function WithoutNav() {
-//   return (
-//     <div className="container">
-//       <Route path="/order" exact>
-//         <Order />
-//       </Route>
-
-//       <Route path="/product" exact>
-//         <Product />
-//       </Route>
-//     </div>
-//   );
-// }
-
-// function WithNav() {
-//   return (
-//     <div className="home">
-//       <Nav toggle={nav} />
-//       <Route path="/" exact>
-//         <Home />
-//       </Route>
-
-//       <Route path="/cart" exact>
-//         <Cart />
-//       </Route>
-
-//       <Route path="/faq" exact>
-//         <Faq />
-//       </Route>
-//     </div>
-//   );
-// }
 
 export default App;

@@ -17,16 +17,3 @@ AccordionTitle.propTypes = {
 };
 
 export default AccordionTitle;
-
-// {
-//   props.title || (
-//     <>
-//       <div className="skeleton-wrapper">
-//         <Skeleton height={20} width={120} />
-//       </div>
-//       <div className="skeleton-wrapper">
-//         <Skeleton height={20} width={180} />
-//       </div>
-//     </>
-//   );
-// }
