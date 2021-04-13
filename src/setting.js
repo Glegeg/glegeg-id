@@ -7,5 +7,5 @@ export const preOrderStatus = {
 
   // Contoh format peroiode pre order= "7 April - 20 April 2021"
   // Atau bisa juga ditulis pesan misalnya "Coming Soon!"
-  periodePreOrder: "12 April - 16 April 2021",
+  periodePreOrder: "12 April - 16 Mei 2021",
 };
