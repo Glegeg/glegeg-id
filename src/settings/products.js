@@ -18,7 +18,7 @@ const products = [
     price: 15000,
     img: redVelvet,
     desc: [
-      "Lagi pusing nugas, skripsi, atau nungguin kepastian dari dia? Tenang, cobain nih Matcha Plain yang siap nemenin kamu berpusing pusing ria",
+      "Lagi pusing nugas, skripsi, atau nungguin kepastian dari dia? Tenang, cobain nih Red Velvet yang siap nemenin kamu berpusing pusing ria",
       "So? don't miss it!!!",
     ],
   },
@@ -41,7 +41,7 @@ const products = [
     price: 15000,
     img: chocoDelfi,
     desc: [
-      "Lagi pusing nugas, skripsi, atau nungguin kepastian dari dia? Tenang, cobain nih Matcha Plain yang siap nemenin kamu berpusing pusing ria",
+      "Lagi pusing nugas, skripsi, atau nungguin kepastian dari dia? Tenang, cobain nih Choco Delfi yang siap nemenin kamu berpusing pusing ria",
       "So? don't miss it!!!",
     ],
   },
