@@ -11,7 +11,7 @@ const faq = [
   {
     judul: "Kapan periode pre-order gleGleg?",
     isi: [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in suscipit nisl, nec vulputate velit. Praesent ut libero nec lorem facilisis pellentesque sagittis at risus.",
+      "Periode pre-order gleGleg dapat dilihat di tiap halaman produk. Kamu juga bisa mendapatkan kabar pembukaan pre-order di Instagram kami @glegleg.id",
     ],
   },
 ];
