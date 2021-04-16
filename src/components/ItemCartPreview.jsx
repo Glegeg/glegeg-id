@@ -1,5 +1,5 @@
 import React from "react";
-import products from "../products.js";
+import products from "../settings/products.js";
 
 function ItemCartPreview({ index }) {
   function thousandFormat(x) {

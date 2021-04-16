@@ -12,13 +12,13 @@ import Order from "./components/pages/Order";
 import History from "./components/pages/History";
 import Nav from "./components/Nav";
 import RedVelvet from "./components/products/RedVelvet";
-import products from "./products";
+import products from "./settings/products";
 
 import { CartProvider } from "./CartContext";
 import MatchaPlain from "./components/products/MatchaPlain";
 import ChocoDelfi from "./components/products/ChocoDelfi";
 
-import { preOrderStatus } from "./setting";
+import { preOrderStatus } from "./settings/preorder";
 
 function App() {
   const [nav, setNav] = useState(false);

@@ -7,7 +7,7 @@ import AccordionTitle from "../AccordionTitle";
 import { ReactComponent as Whatsapp } from "../../assets/whatsapp.svg";
 import { ReactComponent as Instagram } from "../../assets/instagram.svg";
 import kognitif from "../../assets/kognitif.jpg";
-import faq from "../../faq";
+import faq from "../../settings/faq";
 
 function Faq({ setNav, ...props }) {
   useEffect(() => {

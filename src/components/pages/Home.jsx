@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import ItemReg from "../ItemReg";
 import logo from "../../assets/logo.jpg";
 import HomeHighlight from "../HomeHighlight";
-import products from "../../products";
+import products from "../../settings/products";
 
 export default function Home({ setNav, ...props }) {
   useEffect(() => {

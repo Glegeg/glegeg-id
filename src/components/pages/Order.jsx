@@ -7,7 +7,7 @@ import { ReactComponent as Back } from "../../assets/back.svg";
 import { ReactComponent as EmptyCart } from "../../assets/cart-empty.svg";
 import ItemOrder from "../ItemOrder";
 import Total from "../Total";
-import products from "../../products";
+import products from "../../settings/products";
 import SavedData from "../SavedData";
 
 const randomstring = require("randomstring");

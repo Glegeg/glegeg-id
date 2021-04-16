@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { ReactComponent as Back } from "../../assets/back.svg";
 import { useHistory } from "react-router-dom";
 
-import products from "../../products";
+import products from "../../settings/products";
 import ItemHistory from "../ItemHistory";
 import TotalHistory from "../TotalHistory";
 import { ReactComponent as HistoryEmpty } from "../../assets/history-empty.svg";

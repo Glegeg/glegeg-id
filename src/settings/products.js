@@ -1,6 +1,6 @@
-import redVelvet from "./assets/red-velvet.png";
-import matchaPlain from "./assets/matcha-plain.png";
-import chocoDelfi from "./assets/choco-delfi.png";
+import redVelvet from "../assets/red-velvet.png";
+import matchaPlain from "../assets/matcha-plain.png";
+import chocoDelfi from "../assets/choco-delfi.png";
 
 // Ini berisi produk produk yang tampil di halaman beranda, sama jadi database buat ngambil informasi produk
 // Jangan ubah field "id" sama "path". Sisanya diganti gapapa kalo emang ada perubahan

@@ -3,7 +3,7 @@ import { CartContext } from "../../CartContext";
 
 import ItemCart from "../ItemCart";
 import Total from "../Total";
-import products from "../../products";
+import products from "../../settings/products";
 import { ReactComponent as EmptyCart } from "../../assets/cart-empty.svg";
 import { ReactComponent as History } from "../../assets/history.svg";
 import { Link } from "react-router-dom";
